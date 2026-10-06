@@ -6,6 +6,7 @@ import FlashcardsScreen from './src/screens/FlashcardsScreen';
 import HomeScreen from './src/screens/HomeScreen';
 import QuizScreen from './src/screens/QuizScreen';
 import SearchScreen from './src/screens/SearchScreen';
+import ErrorBoundary from './src/ErrorBoundary';
 import { ProgressProvider, useProgress } from './src/store';
 import { ThemeContext, dark, light } from './src/theme';
 
@@ -52,5 +53,5 @@ function Shell() {
 }
 
 export default function App() {
-  return <ProgressProvider><Shell /></ProgressProvider>;
+  return <ErrorBoundary><ProgressProvider><Shell /></ProgressProvider></ErrorBoundary>;
 }

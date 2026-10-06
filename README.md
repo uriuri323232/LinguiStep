@@ -11,7 +11,7 @@
 - **מצב כהה**, רטט עדין, והכול נשמר במכשיר.
 
 ## גרסאות אנדרואיד
-- האפליקציה (ה-APK) דורשת **אנדרואיד 7.0 ומעלה** (API 24), בהגדרות הרגילות של Expo SDK 52.
+- ה-APK נבנה ל-64 ביט (arm64) בלבד, כדי לשקול פחות, ודורש **אנדרואיד 7.0 ומעלה** (API 24), בהגדרות הרגילות של Expo SDK 52.
 - פועלת גם על גרסאות חדשות יותר (אנדרואיד 14 ומעלה).
 - **Expo Go** לצורך פיתוח דורש גרסה עדכנית של האפליקציה מחנות Google Play.
 - הקראה בלי אינטרנט דורשת קול אנגלי מותקן (הגדרות ← מערכת ← שפה ← פלט טקסט לדיבור, למשל Google).
@@ -24,7 +24,7 @@ npx expo start
 ```
 
 ## בניית APK ב-GitHub
-הקובץ `.github/workflows/build.yml` כבר מוכן. אחרי העלאה: **Actions ← Build APK ← Run workflow**. כשהבנייה מסתיימת, מורידים את `english-offline-apk` מ-Artifacts.
+הקובץ `.github/workflows/main.yml` כבר מוכן. אחרי העלאה: **Actions ← Build APK ← Run workflow**. כשהבנייה מסתיימת, מורידים את `english-offline-apk` מ-Artifacts.
 (בנייה מקומית: `eas build -p android --profile preview`).
 
 ## הוספת מילים
