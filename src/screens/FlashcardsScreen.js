@@ -1,115 +1,110 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
-import { View, Text, TouchableOpacity, Animated, StyleSheet } from 'react-native';
-import CategoryChips from '../components/CategoryChips';
-import { wordsOf, shuffle } from '../data';
-import { speak } from '../speech';
-import { load, save } from '../storage';
-import { colors, radius } from '../theme';
+import { Animated, Text, View, Pressable } from 'react-native';
+import { Btn, CategoryChips, ProgressBar } from '../components/ui';
+import { shuffle, wordsOf } from '../data';
+import { speak, good } from '../speech';
+import { useProgress } from '../store';
+import { radius, useTheme } from '../theme';
 
-export default function FlashcardsScreen() {
-  const [cat, setCat] = useState('all');
-  const [order, setOrder] = useState(null); // null = original order
+export default function FlashcardsScreen({ route }) {
+  const t = useTheme();
+  const { s, award, markKnown } = useProgress();
+  const [cat, setCat] = useState(route.cat || 'all');
+  const [hideKnown, setHide] = useState(false);
+  const [order, setOrder] = useState(null);
   const [idx, setIdx] = useState(0);
-  const [known, setKnown] = useState({});
   const flip = useRef(new Animated.Value(0)).current;
   const flipped = useRef(false);
 
   const base = useMemo(() => wordsOf(cat), [cat]);
-  const deck = order || base;
-  const word = deck[idx];
+  const deck = useMemo(() => (order || base).filter((w) => !hideKnown || !s.known[w.id]), [order, base, hideKnown, s.known]);
+  const i = Math.min(idx, Math.max(0, deck.length - 1));
+  const word = deck[i];
+  const knownInCat = base.filter((w) => s.known[w.id]).length;
 
-  useEffect(() => { load('known', {}).then(setKnown); }, []);
   useEffect(() => { setOrder(null); setIdx(0); }, [cat]);
-  useEffect(() => { flip.setValue(0); flipped.current = false; }, [idx, cat, order]);
+  useEffect(() => { flip.setValue(0); flipped.current = false; }, [word && word.id]);
+  useEffect(() => { if (s.auto && word) speak(word.en); }, [word && word.id]);
 
   const doFlip = () => {
-    Animated.spring(flip, { toValue: flipped.current ? 0 : 180, friction: 8, tension: 10, useNativeDriver: true }).start();
+    Animated.spring(flip, { toValue: flipped.current ? 0 : 180, friction: 8, tension: 12, useNativeDriver: true }).start();
     flipped.current = !flipped.current;
   };
-  const go = (d) => { const n = idx + d; if (n >= 0 && n < deck.length) setIdx(n); };
-  const toggleKnown = () => {
-    const next = { ...known, [word.id]: !known[word.id] };
-    setKnown(next); save('known', next);
-  };
-  const knownCount = deck.filter((w) => known[w.id]).length;
+  const next = () => setIdx(Math.min(i + 1, deck.length - 1));
+  const prev = () => setIdx(Math.max(i - 1, 0));
+  const onKnow = () => { markKnown(word.id, true); award(3); good(); if (!hideKnown) next(); };
+  const onLater = () => { markKnown(word.id, false); award(1); next(); };
 
   const frontRot = flip.interpolate({ inputRange: [0, 180], outputRange: ['0deg', '180deg'] });
   const backRot = flip.interpolate({ inputRange: [0, 180], outputRange: ['180deg', '360deg'] });
+  const face = { position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, backfaceVisibility: 'hidden', borderRadius: radius + 6, alignItems: 'center', justifyContent: 'center', padding: 22, elevation: 5, shadowColor: t.shadow, shadowOpacity: 0.18, shadowRadius: 16, shadowOffset: { width: 0, height: 8 } };
 
-  if (!word) return null;
   return (
-    <View style={styles.wrap}>
+    <View style={{ flex: 1, paddingTop: 8 }}>
       <CategoryChips value={cat} onChange={setCat} />
-      <View style={styles.meta}>
-        <Text style={styles.metaText}>מילה {idx + 1} מתוך {deck.length}</Text>
-        <Text style={styles.metaText}>✅ {knownCount} ידועות</Text>
-      </View>
-      <View style={styles.bar}><View style={[styles.barFill, { width: `${((idx + 1) / deck.length) * 100}%` }]} /></View>
-
-      <View style={styles.cardArea}>
-        <TouchableOpacity activeOpacity={0.95} onPress={doFlip} style={styles.touch}>
-          <Animated.View style={[styles.face, { transform: [{ perspective: 1000 }, { rotateY: frontRot }] }]}>
-            <Text style={styles.cat}>{word.emoji} {word.categoryName}</Text>
-            <Text style={styles.en}>{word.en}</Text>
-            <Text style={styles.hint}>הקש כדי לראות תרגום</Text>
-          </Animated.View>
-          <Animated.View style={[styles.face, styles.back, { transform: [{ perspective: 1000 }, { rotateY: backRot }] }]}>
-            <Text style={styles.he}>{word.he}</Text>
-            <Text style={[styles.hint, { color: '#C9D3EA' }]}>הקש כדי לחזור</Text>
-          </Animated.View>
-        </TouchableOpacity>
+      <View style={{ paddingHorizontal: 20, marginTop: 12, gap: 8 }}>
+        <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
+          <Text style={{ color: t.muted }}>{deck.length ? `${i + 1} מתוך ${deck.length}` : '—'}</Text>
+          <Text style={{ color: t.muted }}>✅ {knownInCat} / {base.length} ידועות</Text>
+        </View>
+        <ProgressBar value={deck.length ? (i + 1) / deck.length : 0} height={8} />
       </View>
 
-      <View style={styles.actions}>
-        <TouchableOpacity style={styles.round} onPress={() => speak(word.en)} accessibilityLabel="השמע הגייה">
-          <Text style={styles.roundText}>🔊 השמע</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={[styles.round, known[word.id] && styles.roundOn]} onPress={toggleKnown}>
-          <Text style={styles.roundText}>{known[word.id] ? '✅ ידועה' : '☑️ סמן כידועה'}</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.round} onPress={() => { setOrder(shuffle(base)); setIdx(0); }}>
-          <Text style={styles.roundText}>🔀 ערבב</Text>
-        </TouchableOpacity>
-      </View>
+      {!word ? (
+        <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', padding: 30, gap: 12 }}>
+          <Text style={{ fontSize: 64 }}>🎉</Text>
+          <Text style={{ color: t.ink, fontSize: 20, fontWeight: '800', textAlign: 'center' }}>ידעת את כל המילים בנושא הזה!</Text>
+          <Btn onPress={() => setHide(false)} style={{ backgroundColor: t.accent, paddingHorizontal: 22, paddingVertical: 13, borderRadius: 14 }}>
+            <Text style={{ color: t.onAccent, fontWeight: '800' }}>הצג את כל המילים שוב</Text>
+          </Btn>
+        </View>
+      ) : (
+        <>
+          <View style={{ flex: 1, padding: 20, justifyContent: 'center' }}>
+            <Pressable onPress={doFlip} style={{ height: 320 }}>
+              <Animated.View style={[face, { backgroundColor: t.card, borderWidth: 1, borderColor: t.line, transform: [{ perspective: 1000 }, { rotateY: frontRot }] }]}>
+                <View style={{ position: 'absolute', top: 16, left: 16, backgroundColor: word.color + '26', paddingHorizontal: 12, paddingVertical: 5, borderRadius: 999 }}>
+                  <Text style={{ color: t.ink, fontWeight: '700', fontSize: 12 }}>{word.emoji} {word.categoryName}</Text>
+                </View>
+                {s.known[word.id] && <Text style={{ position: 'absolute', top: 14, right: 16, fontSize: 22 }}>✅</Text>}
+                <Text style={{ fontSize: 40, fontWeight: '800', color: t.ink, textAlign: 'center' }}>{word.en}</Text>
+                <Text style={{ marginTop: 16, color: t.muted }}>הקש כדי לראות תרגום</Text>
+              </Animated.View>
+              <Animated.View style={[face, { backgroundColor: word.color, transform: [{ perspective: 1000 }, { rotateY: backRot }] }]}>
+                <Text style={{ fontSize: 38, fontWeight: '800', color: '#fff', textAlign: 'center', writingDirection: 'rtl' }}>{word.he}</Text>
+                <Text style={{ marginTop: 16, color: '#fff', opacity: 0.8 }}>הקש כדי לחזור</Text>
+              </Animated.View>
+            </Pressable>
+          </View>
 
-      <View style={styles.nav}>
-        <TouchableOpacity style={[styles.navBtn, idx === 0 && styles.disabled]} disabled={idx === 0} onPress={() => go(-1)}>
-          <Text style={styles.navText}>‹ הקודמת</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={[styles.navBtn, styles.primary, idx === deck.length - 1 && styles.disabled]} disabled={idx === deck.length - 1} onPress={() => go(1)}>
-          <Text style={[styles.navText, { color: '#fff' }]}>הבאה ›</Text>
-        </TouchableOpacity>
-      </View>
+          <View style={{ flexDirection: 'row', gap: 10, paddingHorizontal: 16 }}>
+            <Btn onPress={onLater} style={{ flex: 1, backgroundColor: t.badSoft, borderRadius: 16, paddingVertical: 15, alignItems: 'center' }}>
+              <Text style={{ color: t.bad, fontWeight: '800', fontSize: 15 }}>🔁 עוד לא</Text>
+            </Btn>
+            <Btn onPress={onKnow} style={{ flex: 1, backgroundColor: t.goodSoft, borderRadius: 16, paddingVertical: 15, alignItems: 'center' }}>
+              <Text style={{ color: t.good, fontWeight: '800', fontSize: 15 }}>✅ ידעתי</Text>
+            </Btn>
+          </View>
+
+          <View style={{ flexDirection: 'row', gap: 8, padding: 16 }}>
+            <Btn onPress={prev} disabled={i === 0} style={{ flex: 1, backgroundColor: t.card, borderWidth: 1, borderColor: t.line, borderRadius: 14, paddingVertical: 12, alignItems: 'center' }}>
+              <Text style={{ color: t.ink, fontWeight: '700' }}>›</Text>
+            </Btn>
+            <Btn onPress={() => speak(word.en)} style={{ flex: 2, backgroundColor: t.soft, borderRadius: 14, paddingVertical: 12, alignItems: 'center' }}>
+              <Text style={{ color: t.ink, fontWeight: '700' }}>🔊 השמע</Text>
+            </Btn>
+            <Btn onPress={() => { setOrder(shuffle(base)); setIdx(0); }} style={{ flex: 2, backgroundColor: t.soft, borderRadius: 14, paddingVertical: 12, alignItems: 'center' }}>
+              <Text style={{ color: t.ink, fontWeight: '700' }}>🔀 ערבב</Text>
+            </Btn>
+            <Btn onPress={() => setHide(!hideKnown)} style={{ flex: 2, backgroundColor: hideKnown ? t.accent : t.soft, borderRadius: 14, paddingVertical: 12, alignItems: 'center' }}>
+              <Text style={{ color: hideKnown ? t.onAccent : t.ink, fontWeight: '700' }}>👁 רק חדשות</Text>
+            </Btn>
+            <Btn onPress={next} disabled={i >= deck.length - 1} style={{ flex: 1, backgroundColor: t.card, borderWidth: 1, borderColor: t.line, borderRadius: 14, paddingVertical: 12, alignItems: 'center' }}>
+              <Text style={{ color: t.ink, fontWeight: '700' }}>‹</Text>
+            </Btn>
+          </View>
+        </>
+      )}
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  wrap: { flex: 1, paddingTop: 8 },
-  meta: { flexDirection: 'row', justifyContent: 'space-between', paddingHorizontal: 20, marginTop: 10 },
-  metaText: { color: colors.muted, fontSize: 14 },
-  bar: { height: 6, backgroundColor: colors.line, borderRadius: 6, marginHorizontal: 20, marginTop: 8, overflow: 'hidden' },
-  barFill: { height: '100%', backgroundColor: colors.accent },
-  cardArea: { flex: 1, padding: 20, justifyContent: 'center' },
-  touch: { height: 300 },
-  face: {
-    position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, backfaceVisibility: 'hidden',
-    backgroundColor: colors.card, borderRadius: radius, borderWidth: 1, borderColor: colors.line,
-    alignItems: 'center', justifyContent: 'center', padding: 20, elevation: 3,
-    shadowColor: '#14213D', shadowOpacity: 0.12, shadowRadius: 12, shadowOffset: { width: 0, height: 6 },
-  },
-  back: { backgroundColor: colors.ink, borderColor: colors.ink },
-  cat: { position: 'absolute', top: 14, left: 14, backgroundColor: colors.sun, color: '#3A2A00', fontWeight: '700', fontSize: 12, paddingHorizontal: 10, paddingVertical: 4, borderRadius: 999, overflow: 'hidden' },
-  en: { fontSize: 38, fontWeight: '800', color: colors.ink, textAlign: 'center' },
-  he: { fontSize: 36, fontWeight: '800', color: '#fff', textAlign: 'center', writingDirection: 'rtl' },
-  hint: { marginTop: 14, color: colors.muted, fontSize: 13 },
-  actions: { flexDirection: 'row', gap: 8, paddingHorizontal: 16, justifyContent: 'center' },
-  round: { flex: 1, backgroundColor: colors.card, borderWidth: 1, borderColor: colors.line, paddingVertical: 12, borderRadius: 14, alignItems: 'center' },
-  roundOn: { backgroundColor: colors.goodSoft, borderColor: colors.good },
-  roundText: { color: colors.ink, fontWeight: '600', fontSize: 13 },
-  nav: { flexDirection: 'row', gap: 10, padding: 16 },
-  navBtn: { flex: 1, backgroundColor: colors.card, borderWidth: 1, borderColor: colors.line, paddingVertical: 15, borderRadius: 14, alignItems: 'center' },
-  primary: { backgroundColor: colors.accent, borderColor: colors.accent },
-  navText: { fontWeight: '700', color: colors.ink, fontSize: 16 },
-  disabled: { opacity: 0.4 },
-});

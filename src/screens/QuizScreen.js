@@ -1,145 +1,162 @@
 import React, { useEffect, useState } from 'react';
-import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
-import CategoryChips from '../components/CategoryChips';
-import { wordsOf, allWords, shuffle } from '../data';
-import { speak } from '../speech';
-import { load, save } from '../storage';
-import { colors, radius } from '../theme';
+import { ScrollView, Text, View } from 'react-native';
+import { LinearGradient } from 'expo-linear-gradient';
+import { Btn, CategoryChips, ProgressBar } from '../components/ui';
+import { allWords, shuffle, wordById, wordsOf } from '../data';
+import { bad, good, speak } from '../speech';
+import { useProgress } from '../store';
+import { radius, useTheme } from '../theme';
 
 const LEN = 10;
+const MODES = [
+  { k: 'en2he', icon: '🇬🇧', title: 'אנגלית ← עברית', sub: 'רואים מילה, בוחרים תרגום' },
+  { k: 'he2en', icon: '🇮🇱', title: 'עברית ← אנגלית', sub: 'רואים תרגום, בוחרים מילה' },
+  { k: 'listen', icon: '🎧', title: 'האזנה', sub: 'שומעים מילה, בוחרים תרגום' },
+];
 
-function buildQuiz(cat, dir) {
-  const pool = wordsOf(cat);
-  const picked = shuffle(pool).slice(0, Math.min(LEN, pool.length));
-  const field = dir === 'en2he' ? 'he' : 'en';
-  return picked.map((w) => {
-    const ask = dir === 'en2he' ? w.en : w.he;
+function build(pool, mode) {
+  const m = mode === 'he2en' ? 'he2en' : 'en2he';
+  const field = m === 'he2en' ? 'en' : 'he';
+  return shuffle(pool).slice(0, LEN).map((w) => {
     const right = w[field];
     const wrong = [];
     for (const x of shuffle(allWords)) {
       if (x[field] !== right && !wrong.includes(x[field])) wrong.push(x[field]);
       if (wrong.length === 3) break;
     }
-    return { ask, right, en: w.en, options: shuffle([right, ...wrong]) };
+    return { id: w.id, en: w.en, ask: m === 'he2en' ? w.he : w.en, right, options: shuffle([right, ...wrong]) };
   });
 }
 
-export default function QuizScreen() {
+export default function QuizScreen({ route }) {
+  const t = useTheme();
+  const { s, update, award, addMistake, clearMistake } = useProgress();
   const [cat, setCat] = useState('all');
-  const [dir, setDir] = useState('en2he');
+  const [mode, setMode] = useState('en2he');
   const [quiz, setQuiz] = useState(null);
   const [qi, setQi] = useState(0);
   const [score, setScore] = useState(0);
+  const [combo, setCombo] = useState(0);
+  const [gained, setGained] = useState(0);
   const [picked, setPicked] = useState(null);
-  const [best, setBest] = useState(0);
+  const [note, setNote] = useState('');
+  const [reviewing, setReviewing] = useState(false);
 
-  useEffect(() => { load('bestScore', 0).then(setBest); }, []);
+  const start = (m = mode, pool = wordsOf(cat), review = false) => {
+    if (pool.length === 0) { setNote('אין כרגע טעויות לחזרה. כל הכבוד! 🎉'); return; }
+    setNote(''); setMode(m); setReviewing(review);
+    setQuiz(build(pool, m)); setQi(0); setScore(0); setCombo(0); setGained(0); setPicked(null);
+  };
 
-  const start = () => { setQuiz(buildQuiz(cat, dir)); setQi(0); setScore(0); setPicked(null); };
+  useEffect(() => {
+    if (route.start === 'mistakes') start('en2he', Object.keys(s.mistakes).map((id) => wordById[id]).filter(Boolean), true);
+    else if (route.start) start(route.start);
+  }, []);
+
   const finished = quiz && qi >= quiz.length;
+  const q = quiz && quiz[qi];
 
+  useEffect(() => { if (q && mode === 'listen') speak(q.en); }, [qi, quiz]);
   useEffect(() => {
     if (finished) {
       const pct = Math.round((score / quiz.length) * 100);
-      if (pct > best) { setBest(pct); save('bestScore', pct); }
+      if (pct > s.best) update((p) => ({ ...p, best: pct }));
     }
   }, [finished]);
 
-  const choose = (opt) => {
+  const choose = (o) => {
     if (picked != null) return;
-    setPicked(opt);
-    if (opt === quiz[qi].right) setScore((s) => s + 1);
+    setPicked(o);
+    if (o === q.right) {
+      const c = combo + 1; const xp = 5 + Math.min(c - 1, 5);
+      setScore(score + 1); setCombo(c); setGained(gained + xp); award(xp); clearMistake(q.id); good();
+    } else { setCombo(0); addMistake(q.id); award(1); bad(); }
   };
-  const next = () => { setPicked(null); setQi((i) => i + 1); };
 
   if (!quiz) {
     return (
-      <View style={styles.wrap}>
-        <Text style={styles.title}>חידון</Text>
-        <Text style={styles.sub}>בחר נושא וכיוון, ואז התחל. שיא אישי: {best}%</Text>
+      <ScrollView contentContainerStyle={{ padding: 16, gap: 14 }}>
+        <Text style={{ fontSize: 28, fontWeight: '800', color: t.ink }}>חידון 🎯</Text>
+        <Text style={{ color: t.muted }}>שיא אישי: {s.best}% · כל תשובה נכונה מעניקה נקודות, ורצף תשובות מוסיף בונוס.</Text>
         <CategoryChips value={cat} onChange={setCat} />
-        <View style={styles.dirRow}>
-          {[['en2he', 'אנגלית ← עברית'], ['he2en', 'עברית ← אנגלית']].map(([k, label]) => (
-            <TouchableOpacity key={k} onPress={() => setDir(k)} style={[styles.dir, dir === k && styles.dirOn]}>
-              <Text style={[styles.dirText, dir === k && { color: '#fff' }]}>{label}</Text>
-            </TouchableOpacity>
-          ))}
-        </View>
-        <TouchableOpacity style={styles.start} onPress={start}><Text style={styles.startText}>התחל חידון</Text></TouchableOpacity>
-      </View>
+        {MODES.map((m) => (
+          <Btn key={m.k} onPress={() => setMode(m.k)} style={{ flexDirection: 'row', alignItems: 'center', gap: 14, backgroundColor: mode === m.k ? t.soft : t.card, borderRadius: radius, borderWidth: 2, borderColor: mode === m.k ? t.accent : t.line, padding: 16 }}>
+            <Text style={{ fontSize: 30 }}>{m.icon}</Text>
+            <View style={{ flex: 1 }}>
+              <Text style={{ color: t.ink, fontWeight: '800', fontSize: 16 }}>{m.title}</Text>
+              <Text style={{ color: t.muted, marginTop: 2 }}>{m.sub}</Text>
+            </View>
+            {mode === m.k && <Text style={{ fontSize: 20 }}>✔️</Text>}
+          </Btn>
+        ))}
+        <Btn onPress={() => start()} style={{ alignSelf: 'stretch' }}>
+          <LinearGradient colors={[t.accent, t.accent2]} start={{ x: 0, y: 0 }} end={{ x: 1, y: 0 }} style={{ borderRadius: 16, paddingVertical: 17, alignItems: 'center' }}>
+            <Text style={{ color: '#fff', fontWeight: '800', fontSize: 17 }}>התחל חידון</Text>
+          </LinearGradient>
+        </Btn>
+        <Btn onPress={() => start('en2he', Object.keys(s.mistakes).map((id) => wordById[id]).filter(Boolean), true)}
+          style={{ backgroundColor: t.card, borderRadius: 16, borderWidth: 1, borderColor: t.line, paddingVertical: 15, alignItems: 'center' }}>
+          <Text style={{ color: t.ink, fontWeight: '700' }}>🔁 חזרה על טעויות ({Object.keys(s.mistakes).length})</Text>
+        </Btn>
+        {!!note && <Text style={{ color: t.muted, textAlign: 'center' }}>{note}</Text>}
+      </ScrollView>
     );
   }
 
   if (finished) {
     const pct = Math.round((score / quiz.length) * 100);
+    const stars = pct === 100 ? 3 : pct >= 70 ? 2 : pct >= 40 ? 1 : 0;
     return (
-      <View style={[styles.wrap, { justifyContent: 'center', alignItems: 'center' }]}>
-        <Text style={styles.big}>{score} / {quiz.length}</Text>
-        <Text style={styles.sub}>{pct === 100 ? 'מושלם! 🎉' : pct >= 70 ? 'כל הכבוד! 👏' : 'התחלה טובה, נסה שוב 💪'}</Text>
-        <Text style={styles.sub}>שיא אישי: {best}%</Text>
-        <TouchableOpacity style={styles.start} onPress={start}><Text style={styles.startText}>חידון חדש</Text></TouchableOpacity>
-        <TouchableOpacity onPress={() => setQuiz(null)}><Text style={styles.link}>חזרה לבחירת נושא</Text></TouchableOpacity>
+      <View style={{ flex: 1, padding: 24, alignItems: 'center', justifyContent: 'center', gap: 12 }}>
+        <Text style={{ fontSize: 44 }}>{'⭐'.repeat(stars) || '💪'}</Text>
+        <Text style={{ fontSize: 60, fontWeight: '800', color: t.ink }}>{score}/{quiz.length}</Text>
+        <Text style={{ color: t.ink, fontSize: 18, fontWeight: '700' }}>
+          {pct === 100 ? 'מושלם! ענית נכון על הכול' : pct >= 70 ? 'כל הכבוד!' : 'התחלה טובה, עוד סיבוב ותשתפר'}
+        </Text>
+        <Text style={{ color: t.muted }}>הרווחת {gained} נקודות · שיא אישי {Math.max(s.best, pct)}%</Text>
+        <Btn onPress={() => start(mode, reviewing ? Object.keys(s.mistakes).map((id) => wordById[id]).filter(Boolean) : wordsOf(cat), reviewing)}
+          style={{ alignSelf: 'stretch', backgroundColor: t.accent, borderRadius: 16, paddingVertical: 16, alignItems: 'center', marginTop: 8 }}>
+          <Text style={{ color: t.onAccent, fontWeight: '800', fontSize: 16 }}>סיבוב נוסף</Text>
+        </Btn>
+        <Btn onPress={() => setQuiz(null)} style={{ alignSelf: 'stretch', backgroundColor: t.card, borderWidth: 1, borderColor: t.line, borderRadius: 16, paddingVertical: 15, alignItems: 'center' }}>
+          <Text style={{ color: t.ink, fontWeight: '700' }}>חזרה לבחירת נושא</Text>
+        </Btn>
       </View>
     );
   }
 
-  const q = quiz[qi];
   return (
-    <View style={styles.wrap}>
-      <View style={styles.meta}>
-        <Text style={styles.metaText}>שאלה {qi + 1} מתוך {quiz.length}</Text>
-        <Text style={styles.metaText}>ניקוד: {score}</Text>
+    <ScrollView contentContainerStyle={{ padding: 16, gap: 12 }}>
+      <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
+        <Text style={{ color: t.muted }}>שאלה {qi + 1} מתוך {quiz.length}</Text>
+        <Text style={{ color: t.ink, fontWeight: '800' }}>{combo >= 2 ? `🔥 רצף ${combo}  ` : ''}⭐ {score}</Text>
       </View>
-      <View style={styles.bar}><View style={[styles.barFill, { width: `${(qi / quiz.length) * 100}%` }]} /></View>
-      <View style={styles.q}>
-        <Text style={[styles.ask, dir === 'he2en' && { writingDirection: 'rtl' }]}>{q.ask}</Text>
-        {dir === 'en2he' && (
-          <TouchableOpacity onPress={() => speak(q.en)}><Text style={styles.link}>🔊 השמע</Text></TouchableOpacity>
+      <ProgressBar value={qi / quiz.length} height={8} />
+      <View style={{ backgroundColor: t.card, borderRadius: radius + 4, borderWidth: 1, borderColor: t.line, padding: 26, alignItems: 'center', gap: 10, marginTop: 4 }}>
+        {mode === 'listen' ? (
+          <Btn onPress={() => speak(q.en)} style={{ width: 96, height: 96, borderRadius: 48, backgroundColor: t.soft, alignItems: 'center', justifyContent: 'center' }}>
+            <Text style={{ fontSize: 44 }}>🔊</Text>
+          </Btn>
+        ) : (
+          <Text style={{ fontSize: 36, fontWeight: '800', color: t.ink, textAlign: 'center', writingDirection: mode === 'he2en' ? 'rtl' : 'ltr' }}>{q.ask}</Text>
         )}
-        <Text style={styles.sub}>בחר את התרגום הנכון</Text>
+        {mode === 'en2he' && <Btn onPress={() => speak(q.en)}><Text style={{ color: t.accent, fontWeight: '700' }}>🔊 השמע</Text></Btn>}
+        <Text style={{ color: t.muted }}>{mode === 'listen' ? 'הקש כדי לשמוע שוב, ובחר את התרגום' : 'בחר את התשובה הנכונה'}</Text>
       </View>
-      <View style={styles.opts}>
-        {q.options.map((o) => {
-          const isRight = o === q.right;
-          const show = picked != null;
-          return (
-            <TouchableOpacity key={o} disabled={show} onPress={() => choose(o)}
-              style={[styles.opt, show && isRight && styles.good, show && picked === o && !isRight && styles.bad]}>
-              <Text style={[styles.optText, dir === 'en2he' && { writingDirection: 'rtl' }]}>{o}</Text>
-            </TouchableOpacity>
-          );
-        })}
-      </View>
+      {q.options.map((o) => {
+        const show = picked != null; const right = o === q.right; const wrong = show && picked === o && !right;
+        return (
+          <Btn key={o} disabled={show} onPress={() => choose(o)}
+            style={{ backgroundColor: show && right ? t.goodSoft : wrong ? t.badSoft : t.card, borderWidth: 2, borderColor: show && right ? t.good : wrong ? t.bad : t.line, borderRadius: 16, padding: 16, alignItems: 'center', opacity: 1 }}>
+            <Text style={{ fontSize: 19, fontWeight: '700', color: t.ink, textAlign: 'center', writingDirection: mode === 'he2en' ? 'ltr' : 'rtl' }}>{show && right ? '✅ ' : wrong ? '❌ ' : ''}{o}</Text>
+          </Btn>
+        );
+      })}
       {picked != null && (
-        <TouchableOpacity style={styles.start} onPress={next}>
-          <Text style={styles.startText}>{qi === quiz.length - 1 ? 'לתוצאות' : 'לשאלה הבאה'}</Text>
-        </TouchableOpacity>
+        <Btn onPress={() => { setPicked(null); setQi(qi + 1); }} style={{ backgroundColor: t.accent, borderRadius: 16, paddingVertical: 16, alignItems: 'center', marginTop: 4 }}>
+          <Text style={{ color: t.onAccent, fontWeight: '800', fontSize: 16 }}>{qi === quiz.length - 1 ? 'לתוצאות' : 'לשאלה הבאה'}</Text>
+        </Btn>
       )}
-    </View>
+    </ScrollView>
   );
 }
-
-const styles = StyleSheet.create({
-  wrap: { flex: 1, padding: 16, gap: 12 },
-  title: { fontSize: 26, fontWeight: '800', color: colors.ink, textAlign: 'center' },
-  sub: { color: colors.muted, textAlign: 'center', fontSize: 14 },
-  big: { fontSize: 56, fontWeight: '800', color: colors.ink },
-  link: { color: colors.accent, fontWeight: '700', textAlign: 'center', marginTop: 8 },
-  dirRow: { flexDirection: 'row', gap: 8 },
-  dir: { flex: 1, padding: 13, borderRadius: 14, borderWidth: 1, borderColor: colors.line, backgroundColor: colors.card, alignItems: 'center' },
-  dirOn: { backgroundColor: colors.ink, borderColor: colors.ink },
-  dirText: { fontWeight: '700', color: colors.ink },
-  start: { backgroundColor: colors.accent, padding: 16, borderRadius: 14, alignItems: 'center', alignSelf: 'stretch', marginTop: 6 },
-  startText: { color: '#fff', fontWeight: '800', fontSize: 16 },
-  meta: { flexDirection: 'row', justifyContent: 'space-between', paddingHorizontal: 4 },
-  metaText: { color: colors.muted },
-  bar: { height: 6, backgroundColor: colors.line, borderRadius: 6, overflow: 'hidden' },
-  barFill: { height: '100%', backgroundColor: colors.accent },
-  q: { backgroundColor: colors.card, borderRadius: radius, borderWidth: 1, borderColor: colors.line, padding: 24, alignItems: 'center', gap: 6 },
-  ask: { fontSize: 34, fontWeight: '800', color: colors.ink, textAlign: 'center' },
-  opts: { gap: 10 },
-  opt: { backgroundColor: colors.card, borderWidth: 2, borderColor: colors.line, borderRadius: 14, padding: 16, alignItems: 'center' },
-  optText: { fontSize: 19, fontWeight: '700', color: colors.ink, textAlign: 'center' },
-  good: { borderColor: colors.good, backgroundColor: colors.goodSoft },
-  bad: { borderColor: colors.bad, backgroundColor: colors.badSoft },
-});

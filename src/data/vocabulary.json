@@ -1,1370 +1,3384 @@
 {
- "categories": [
-  {
-   "id": "basics",
-   "name": "יסודות",
-   "emoji": "👋",
-   "words": [
-    {
-     "en": "hello",
-     "he": "שלום"
-    },
-    {
-     "en": "goodbye",
-     "he": "להתראות"
-    },
-    {
-     "en": "please",
-     "he": "בבקשה"
-    },
-    {
-     "en": "thank you",
-     "he": "תודה"
-    },
-    {
-     "en": "sorry",
-     "he": "סליחה"
-    },
-    {
-     "en": "excuse me",
-     "he": "סלחו לי"
-    },
-    {
-     "en": "yes",
-     "he": "כן"
-    },
-    {
-     "en": "no",
-     "he": "לא"
-    },
-    {
-     "en": "good morning",
-     "he": "בוקר טוב"
-    },
-    {
-     "en": "good night",
-     "he": "לילה טוב"
-    },
-    {
-     "en": "how are you?",
-     "he": "מה שלומך?"
-    },
-    {
-     "en": "I'm fine",
-     "he": "אני בסדר"
-    },
-    {
-     "en": "my name is",
-     "he": "קוראים לי"
-    },
-    {
-     "en": "nice to meet you",
-     "he": "נעים להכיר"
-    },
-    {
-     "en": "what",
-     "he": "מה"
-    },
-    {
-     "en": "where",
-     "he": "איפה"
-    },
-    {
-     "en": "when",
-     "he": "מתי"
-    },
-    {
-     "en": "who",
-     "he": "מי"
-    },
-    {
-     "en": "why",
-     "he": "למה"
-    },
-    {
-     "en": "how",
-     "he": "איך"
-    },
-    {
-     "en": "I",
-     "he": "אני"
-    },
-    {
-     "en": "you",
-     "he": "אתה / את"
-    },
-    {
-     "en": "he",
-     "he": "הוא"
-    },
-    {
-     "en": "she",
-     "he": "היא"
-    },
-    {
-     "en": "we",
-     "he": "אנחנו"
-    },
-    {
-     "en": "they",
-     "he": "הם"
-    },
-    {
-     "en": "this",
-     "he": "זה"
-    },
-    {
-     "en": "that",
-     "he": "ההוא"
-    },
-    {
-     "en": "here",
-     "he": "כאן"
-    },
-    {
-     "en": "there",
-     "he": "שם"
-    },
-    {
-     "en": "and",
-     "he": "ו"
-    },
-    {
-     "en": "but",
-     "he": "אבל"
-    },
-    {
-     "en": "or",
-     "he": "או"
-    },
-    {
-     "en": "because",
-     "he": "כי"
-    }
-   ]
-  },
-  {
-   "id": "numbers",
-   "name": "מספרים וזמן",
-   "emoji": "🔢",
-   "words": [
-    {
-     "en": "one",
-     "he": "אחד"
-    },
-    {
-     "en": "two",
-     "he": "שניים"
-    },
-    {
-     "en": "three",
-     "he": "שלושה"
-    },
-    {
-     "en": "four",
-     "he": "ארבעה"
-    },
-    {
-     "en": "five",
-     "he": "חמישה"
-    },
-    {
-     "en": "six",
-     "he": "שישה"
-    },
-    {
-     "en": "seven",
-     "he": "שבעה"
-    },
-    {
-     "en": "eight",
-     "he": "שמונה"
-    },
-    {
-     "en": "nine",
-     "he": "תשעה"
-    },
-    {
-     "en": "ten",
-     "he": "עשרה"
-    },
-    {
-     "en": "twenty",
-     "he": "עשרים"
-    },
-    {
-     "en": "hundred",
-     "he": "מאה"
-    },
-    {
-     "en": "thousand",
-     "he": "אלף"
-    },
-    {
-     "en": "first",
-     "he": "ראשון"
-    },
-    {
-     "en": "second",
-     "he": "שני"
-    },
-    {
-     "en": "today",
-     "he": "היום"
-    },
-    {
-     "en": "tomorrow",
-     "he": "מחר"
-    },
-    {
-     "en": "yesterday",
-     "he": "אתמול"
-    },
-    {
-     "en": "now",
-     "he": "עכשיו"
-    },
-    {
-     "en": "later",
-     "he": "אחר כך"
-    },
-    {
-     "en": "always",
-     "he": "תמיד"
-    },
-    {
-     "en": "never",
-     "he": "אף פעם"
-    },
-    {
-     "en": "sometimes",
-     "he": "לפעמים"
-    },
-    {
-     "en": "week",
-     "he": "שבוע"
-    },
-    {
-     "en": "month",
-     "he": "חודש"
-    },
-    {
-     "en": "year",
-     "he": "שנה"
-    },
-    {
-     "en": "hour",
-     "he": "שעה"
-    },
-    {
-     "en": "minute",
-     "he": "דקה"
-    },
-    {
-     "en": "Monday",
-     "he": "יום שני"
-    },
-    {
-     "en": "Sunday",
-     "he": "יום ראשון"
-    },
-    {
-     "en": "morning",
-     "he": "בוקר"
-    },
-    {
-     "en": "evening",
-     "he": "ערב"
-    },
-    {
-     "en": "night",
-     "he": "לילה"
-    }
-   ]
-  },
-  {
-   "id": "actions",
-   "name": "פעלים",
-   "emoji": "🏃",
-   "words": [
-    {
-     "en": "to eat",
-     "he": "לאכול"
-    },
-    {
-     "en": "to drink",
-     "he": "לשתות"
-    },
-    {
-     "en": "to sleep",
-     "he": "לישון"
-    },
-    {
-     "en": "to run",
-     "he": "לרוץ"
-    },
-    {
-     "en": "to walk",
-     "he": "ללכת"
-    },
-    {
-     "en": "to sit",
-     "he": "לשבת"
-    },
-    {
-     "en": "to stand",
-     "he": "לעמוד"
-    },
-    {
-     "en": "to read",
-     "he": "לקרוא"
-    },
-    {
-     "en": "to write",
-     "he": "לכתוב"
-    },
-    {
-     "en": "to speak",
-     "he": "לדבר"
-    },
-    {
-     "en": "to listen",
-     "he": "להקשיב"
-    },
-    {
-     "en": "to see",
-     "he": "לראות"
-    },
-    {
-     "en": "to hear",
-     "he": "לשמוע"
-    },
-    {
-     "en": "to open",
-     "he": "לפתוח"
-    },
-    {
-     "en": "to close",
-     "he": "לסגור"
-    },
-    {
-     "en": "to give",
-     "he": "לתת"
-    },
-    {
-     "en": "to take",
-     "he": "לקחת"
-    },
-    {
-     "en": "to buy",
-     "he": "לקנות"
-    },
-    {
-     "en": "to sell",
-     "he": "למכור"
-    },
-    {
-     "en": "to make",
-     "he": "ליצור / להכין"
-    },
-    {
-     "en": "to want",
-     "he": "לרצות"
-    },
-    {
-     "en": "to need",
-     "he": "להזדקק"
-    },
-    {
-     "en": "to know",
-     "he": "לדעת"
-    },
-    {
-     "en": "to think",
-     "he": "לחשוב"
-    },
-    {
-     "en": "to understand",
-     "he": "להבין"
-    },
-    {
-     "en": "to learn",
-     "he": "ללמוד"
-    },
-    {
-     "en": "to teach",
-     "he": "ללמד"
-    },
-    {
-     "en": "to ask",
-     "he": "לשאול"
-    },
-    {
-     "en": "to answer",
-     "he": "לענות"
-    },
-    {
-     "en": "to help",
-     "he": "לעזור"
-    },
-    {
-     "en": "to love",
-     "he": "לאהוב"
-    },
-    {
-     "en": "to wait",
-     "he": "לחכות"
-    },
-    {
-     "en": "to find",
-     "he": "למצוא"
-    },
-    {
-     "en": "to come",
-     "he": "לבוא"
-    },
-    {
-     "en": "to go",
-     "he": "ללכת / לנסוע"
-    },
-    {
-     "en": "to work",
-     "he": "לעבוד"
-    },
-    {
-     "en": "to play",
-     "he": "לשחק"
-    }
-   ]
-  },
-  {
-   "id": "daily",
-   "name": "חיי היום־יום",
-   "emoji": "🏠",
-   "words": [
-    {
-     "en": "house",
-     "he": "בית"
-    },
-    {
-     "en": "door",
-     "he": "דלת"
-    },
-    {
-     "en": "window",
-     "he": "חלון"
-    },
-    {
-     "en": "room",
-     "he": "חדר"
-    },
-    {
-     "en": "kitchen",
-     "he": "מטבח"
-    },
-    {
-     "en": "bathroom",
-     "he": "חדר רחצה"
-    },
-    {
-     "en": "bedroom",
-     "he": "חדר שינה"
-    },
-    {
-     "en": "table",
-     "he": "שולחן"
-    },
-    {
-     "en": "chair",
-     "he": "כיסא"
-    },
-    {
-     "en": "bed",
-     "he": "מיטה"
-    },
-    {
-     "en": "key",
-     "he": "מפתח"
-    },
-    {
-     "en": "phone",
-     "he": "טלפון"
-    },
-    {
-     "en": "computer",
-     "he": "מחשב"
-    },
-    {
-     "en": "television",
-     "he": "טלוויזיה"
-    },
-    {
-     "en": "lamp",
-     "he": "מנורה"
-    },
-    {
-     "en": "clock",
-     "he": "שעון"
-    },
-    {
-     "en": "bag",
-     "he": "תיק"
-    },
-    {
-     "en": "wallet",
-     "he": "ארנק"
-    },
-    {
-     "en": "glasses",
-     "he": "משקפיים"
-    },
-    {
-     "en": "umbrella",
-     "he": "מטרייה"
-    },
-    {
-     "en": "shirt",
-     "he": "חולצה"
-    },
-    {
-     "en": "pants",
-     "he": "מכנסיים"
-    },
-    {
-     "en": "shoes",
-     "he": "נעליים"
-    },
-    {
-     "en": "coat",
-     "he": "מעיל"
-    },
-    {
-     "en": "hat",
-     "he": "כובע"
-    },
-    {
-     "en": "soap",
-     "he": "סבון"
-    },
-    {
-     "en": "towel",
-     "he": "מגבת"
-    },
-    {
-     "en": "toothbrush",
-     "he": "מברשת שיניים"
-    },
-    {
-     "en": "mirror",
-     "he": "מראה"
-    },
-    {
-     "en": "money",
-     "he": "כסף"
-    },
-    {
-     "en": "shop",
-     "he": "חנות"
-    },
-    {
-     "en": "street",
-     "he": "רחוב"
-    }
-   ]
-  },
-  {
-   "id": "food",
-   "name": "אוכל ושתייה",
-   "emoji": "🍎",
-   "words": [
-    {
-     "en": "water",
-     "he": "מים"
-    },
-    {
-     "en": "bread",
-     "he": "לחם"
-    },
-    {
-     "en": "milk",
-     "he": "חלב"
-    },
-    {
-     "en": "coffee",
-     "he": "קפה"
-    },
-    {
-     "en": "tea",
-     "he": "תה"
-    },
-    {
-     "en": "juice",
-     "he": "מיץ"
-    },
-    {
-     "en": "egg",
-     "he": "ביצה"
-    },
-    {
-     "en": "cheese",
-     "he": "גבינה"
-    },
-    {
-     "en": "butter",
-     "he": "חמאה"
-    },
-    {
-     "en": "rice",
-     "he": "אורז"
-    },
-    {
-     "en": "meat",
-     "he": "בשר"
-    },
-    {
-     "en": "chicken",
-     "he": "עוף"
-    },
-    {
-     "en": "fish",
-     "he": "דג"
-    },
-    {
-     "en": "soup",
-     "he": "מרק"
-    },
-    {
-     "en": "salad",
-     "he": "סלט"
-    },
-    {
-     "en": "sandwich",
-     "he": "כריך"
-    },
-    {
-     "en": "pasta",
-     "he": "פסטה"
-    },
-    {
-     "en": "pizza",
-     "he": "פיצה"
-    },
-    {
-     "en": "apple",
-     "he": "תפוח"
-    },
-    {
-     "en": "banana",
-     "he": "בננה"
-    },
-    {
-     "en": "orange",
-     "he": "תפוז"
-    },
-    {
-     "en": "grapes",
-     "he": "ענבים"
-    },
-    {
-     "en": "tomato",
-     "he": "עגבנייה"
-    },
-    {
-     "en": "cucumber",
-     "he": "מלפפון"
-    },
-    {
-     "en": "potato",
-     "he": "תפוח אדמה"
-    },
-    {
-     "en": "onion",
-     "he": "בצל"
-    },
-    {
-     "en": "carrot",
-     "he": "גזר"
-    },
-    {
-     "en": "sugar",
-     "he": "סוכר"
-    },
-    {
-     "en": "salt",
-     "he": "מלח"
-    },
-    {
-     "en": "cake",
-     "he": "עוגה"
-    },
-    {
-     "en": "breakfast",
-     "he": "ארוחת בוקר"
-    },
-    {
-     "en": "lunch",
-     "he": "ארוחת צהריים"
-    },
-    {
-     "en": "dinner",
-     "he": "ארוחת ערב"
-    },
-    {
-     "en": "hungry",
-     "he": "רעב"
-    },
-    {
-     "en": "thirsty",
-     "he": "צמא"
-    }
-   ]
-  },
-  {
-   "id": "travel",
-   "name": "נסיעות",
-   "emoji": "✈️",
-   "words": [
-    {
-     "en": "airport",
-     "he": "שדה תעופה"
-    },
-    {
-     "en": "plane",
-     "he": "מטוס"
-    },
-    {
-     "en": "train",
-     "he": "רכבת"
-    },
-    {
-     "en": "bus",
-     "he": "אוטובוס"
-    },
-    {
-     "en": "car",
-     "he": "מכונית"
-    },
-    {
-     "en": "taxi",
-     "he": "מונית"
-    },
-    {
-     "en": "bicycle",
-     "he": "אופניים"
-    },
-    {
-     "en": "ticket",
-     "he": "כרטיס"
-    },
-    {
-     "en": "passport",
-     "he": "דרכון"
-    },
-    {
-     "en": "luggage",
-     "he": "מזוודות"
-    },
-    {
-     "en": "hotel",
-     "he": "מלון"
-    },
-    {
-     "en": "reservation",
-     "he": "הזמנה"
-    },
-    {
-     "en": "map",
-     "he": "מפה"
-    },
-    {
-     "en": "station",
-     "he": "תחנה"
-    },
-    {
-     "en": "road",
-     "he": "כביש"
-    },
-    {
-     "en": "left",
-     "he": "שמאלה"
-    },
-    {
-     "en": "right",
-     "he": "ימינה"
-    },
-    {
-     "en": "straight",
-     "he": "ישר"
-    },
-    {
-     "en": "far",
-     "he": "רחוק"
-    },
-    {
-     "en": "near",
-     "he": "קרוב"
-    },
-    {
-     "en": "city",
-     "he": "עיר"
-    },
-    {
-     "en": "country",
-     "he": "מדינה"
-    },
-    {
-     "en": "beach",
-     "he": "חוף"
-    },
-    {
-     "en": "mountain",
-     "he": "הר"
-    },
-    {
-     "en": "tourist",
-     "he": "תייר"
-    },
-    {
-     "en": "trip",
-     "he": "טיול"
-    },
-    {
-     "en": "to arrive",
-     "he": "להגיע"
-    },
-    {
-     "en": "to depart",
-     "he": "לצאת לדרך"
-    },
-    {
-     "en": "lost",
-     "he": "אבוד"
-    },
-    {
-     "en": "Where is the bathroom?",
-     "he": "איפה השירותים?"
-    },
-    {
-     "en": "How much does it cost?",
-     "he": "כמה זה עולה?"
-    },
-    {
-     "en": "I need help",
-     "he": "אני צריך עזרה"
-    }
-   ]
-  },
-  {
-   "id": "people",
-   "name": "אנשים ומשפחה",
-   "emoji": "👨‍👩‍👧",
-   "words": [
-    {
-     "en": "mother",
-     "he": "אמא"
-    },
-    {
-     "en": "father",
-     "he": "אבא"
-    },
-    {
-     "en": "brother",
-     "he": "אח"
-    },
-    {
-     "en": "sister",
-     "he": "אחות"
-    },
-    {
-     "en": "son",
-     "he": "בן"
-    },
-    {
-     "en": "daughter",
-     "he": "בת"
-    },
-    {
-     "en": "grandfather",
-     "he": "סבא"
-    },
-    {
-     "en": "grandmother",
-     "he": "סבתא"
-    },
-    {
-     "en": "uncle",
-     "he": "דוד"
-    },
-    {
-     "en": "aunt",
-     "he": "דודה"
-    },
-    {
-     "en": "husband",
-     "he": "בעל"
-    },
-    {
-     "en": "wife",
-     "he": "אישה (נשואה)"
-    },
-    {
-     "en": "baby",
-     "he": "תינוק"
-    },
-    {
-     "en": "child",
-     "he": "ילד"
-    },
-    {
-     "en": "man",
-     "he": "גבר"
-    },
-    {
-     "en": "woman",
-     "he": "אישה"
-    },
-    {
-     "en": "friend",
-     "he": "חבר"
-    },
-    {
-     "en": "neighbor",
-     "he": "שכן"
-    },
-    {
-     "en": "teacher",
-     "he": "מורה"
-    },
-    {
-     "en": "student",
-     "he": "תלמיד"
-    },
-    {
-     "en": "doctor",
-     "he": "רופא"
-    },
-    {
-     "en": "nurse",
-     "he": "אחות רפואית"
-    },
-    {
-     "en": "driver",
-     "he": "נהג"
-    },
-    {
-     "en": "police officer",
-     "he": "שוטר"
-    },
-    {
-     "en": "boss",
-     "he": "מנהל"
-    },
-    {
-     "en": "guest",
-     "he": "אורח"
-    },
-    {
-     "en": "family",
-     "he": "משפחה"
-    },
-    {
-     "en": "people",
-     "he": "אנשים"
-    }
-   ]
-  },
-  {
-   "id": "feelings",
-   "name": "תארים ורגשות",
-   "emoji": "😊",
-   "words": [
-    {
-     "en": "happy",
-     "he": "שמח"
-    },
-    {
-     "en": "sad",
-     "he": "עצוב"
-    },
-    {
-     "en": "angry",
-     "he": "כועס"
-    },
-    {
-     "en": "tired",
-     "he": "עייף"
-    },
-    {
-     "en": "scared",
-     "he": "מפחד"
-    },
-    {
-     "en": "excited",
-     "he": "נרגש"
-    },
-    {
-     "en": "bored",
-     "he": "משועמם"
-    },
-    {
-     "en": "sick",
-     "he": "חולה"
-    },
-    {
-     "en": "healthy",
-     "he": "בריא"
-    },
-    {
-     "en": "big",
-     "he": "גדול"
-    },
-    {
-     "en": "small",
-     "he": "קטן"
-    },
-    {
-     "en": "long",
-     "he": "ארוך"
-    },
-    {
-     "en": "short",
-     "he": "קצר"
-    },
-    {
-     "en": "tall",
-     "he": "גבוה"
-    },
-    {
-     "en": "fast",
-     "he": "מהיר"
-    },
-    {
-     "en": "slow",
-     "he": "איטי"
-    },
-    {
-     "en": "hot",
-     "he": "חם"
-    },
-    {
-     "en": "cold",
-     "he": "קר"
-    },
-    {
-     "en": "new",
-     "he": "חדש"
-    },
-    {
-     "en": "old",
-     "he": "ישן"
-    },
-    {
-     "en": "good",
-     "he": "טוב"
-    },
-    {
-     "en": "bad",
-     "he": "רע"
-    },
-    {
-     "en": "easy",
-     "he": "קל"
-    },
-    {
-     "en": "difficult",
-     "he": "קשה"
-    },
-    {
-     "en": "beautiful",
-     "he": "יפה"
-    },
-    {
-     "en": "clean",
-     "he": "נקי"
-    },
-    {
-     "en": "dirty",
-     "he": "מלוכלך"
-    },
-    {
-     "en": "expensive",
-     "he": "יקר"
-    },
-    {
-     "en": "cheap",
-     "he": "זול"
-    },
-    {
-     "en": "full",
-     "he": "מלא"
-    },
-    {
-     "en": "empty",
-     "he": "ריק"
-    },
-    {
-     "en": "quiet",
-     "he": "שקט"
-    },
-    {
-     "en": "loud",
-     "he": "רועש"
-    }
-   ]
-  },
-  {
-   "id": "school",
-   "name": "עבודה ולימודים",
-   "emoji": "🎓",
-   "words": [
-    {
-     "en": "school",
-     "he": "בית ספר"
-    },
-    {
-     "en": "class",
-     "he": "כיתה"
-    },
-    {
-     "en": "lesson",
-     "he": "שיעור"
-    },
-    {
-     "en": "homework",
-     "he": "שיעורי בית"
-    },
-    {
-     "en": "exam",
-     "he": "מבחן"
-    },
-    {
-     "en": "book",
-     "he": "ספר"
-    },
-    {
-     "en": "notebook",
-     "he": "מחברת"
-    },
-    {
-     "en": "pen",
-     "he": "עט"
-    },
-    {
-     "en": "pencil",
-     "he": "עיפרון"
-    },
-    {
-     "en": "paper",
-     "he": "נייר"
-    },
-    {
-     "en": "office",
-     "he": "משרד"
-    },
-    {
-     "en": "meeting",
-     "he": "פגישה"
-    },
-    {
-     "en": "job",
-     "he": "עבודה"
-    },
-    {
-     "en": "salary",
-     "he": "משכורת"
-    },
-    {
-     "en": "company",
-     "he": "חברה"
-    },
-    {
-     "en": "email",
-     "he": "דוא״ל"
-    },
-    {
-     "en": "message",
-     "he": "הודעה"
-    },
-    {
-     "en": "problem",
-     "he": "בעיה"
-    },
-    {
-     "en": "question",
-     "he": "שאלה"
-    },
-    {
-     "en": "answer",
-     "he": "תשובה"
-    },
-    {
-     "en": "idea",
-     "he": "רעיון"
-    },
-    {
-     "en": "plan",
-     "he": "תוכנית"
-    },
-    {
-     "en": "project",
-     "he": "פרויקט"
-    },
-    {
-     "en": "deadline",
-     "he": "מועד אחרון"
-    },
-    {
-     "en": "language",
-     "he": "שפה"
-    },
-    {
-     "en": "word",
-     "he": "מילה"
-    },
-    {
-     "en": "sentence",
-     "he": "משפט"
-    },
-    {
-     "en": "example",
-     "he": "דוגמה"
-    }
-   ]
-  },
-  {
-   "id": "nature",
-   "name": "טבע ומזג אוויר",
-   "emoji": "🌤️",
-   "words": [
-    {
-     "en": "sun",
-     "he": "שמש"
-    },
-    {
-     "en": "moon",
-     "he": "ירח"
-    },
-    {
-     "en": "star",
-     "he": "כוכב"
-    },
-    {
-     "en": "sky",
-     "he": "שמיים"
-    },
-    {
-     "en": "cloud",
-     "he": "ענן"
-    },
-    {
-     "en": "rain",
-     "he": "גשם"
-    },
-    {
-     "en": "snow",
-     "he": "שלג"
-    },
-    {
-     "en": "wind",
-     "he": "רוח"
-    },
-    {
-     "en": "storm",
-     "he": "סערה"
-    },
-    {
-     "en": "weather",
-     "he": "מזג אוויר"
-    },
-    {
-     "en": "tree",
-     "he": "עץ"
-    },
-    {
-     "en": "flower",
-     "he": "פרח"
-    },
-    {
-     "en": "grass",
-     "he": "דשא"
-    },
-    {
-     "en": "forest",
-     "he": "יער"
-    },
-    {
-     "en": "river",
-     "he": "נהר"
-    },
-    {
-     "en": "sea",
-     "he": "ים"
-    },
-    {
-     "en": "lake",
-     "he": "אגם"
-    },
-    {
-     "en": "desert",
-     "he": "מדבר"
-    },
-    {
-     "en": "rock",
-     "he": "סלע"
-    },
-    {
-     "en": "fire",
-     "he": "אש"
-    },
-    {
-     "en": "dog",
-     "he": "כלב"
-    },
-    {
-     "en": "cat",
-     "he": "חתול"
-    },
-    {
-     "en": "bird",
-     "he": "ציפור"
-    },
-    {
-     "en": "horse",
-     "he": "סוס"
-    },
-    {
-     "en": "cow",
-     "he": "פרה"
-    },
-    {
-     "en": "sheep",
-     "he": "כבשה"
-    },
-    {
-     "en": "lion",
-     "he": "אריה"
-    },
-    {
-     "en": "elephant",
-     "he": "פיל"
-    },
-    {
-     "en": "mouse",
-     "he": "עכבר"
-    },
-    {
-     "en": "rabbit",
-     "he": "ארנב"
-    },
-    {
-     "en": "summer",
-     "he": "קיץ"
-    },
-    {
-     "en": "winter",
-     "he": "חורף"
-    }
-   ]
-  }
- ]
+"categories": [
+{
+"id": "basics",
+"name": "יסודות",
+"emoji": "👋",
+"color": "#6366F1",
+"words": [
+{
+"en": "hello",
+"he": "שלום"
+},
+{
+"en": "goodbye",
+"he": "להתראות"
+},
+{
+"en": "please",
+"he": "בבקשה"
+},
+{
+"en": "thank you",
+"he": "תודה"
+},
+{
+"en": "you're welcome",
+"he": "על לא דבר"
+},
+{
+"en": "sorry",
+"he": "סליחה"
+},
+{
+"en": "excuse me",
+"he": "סלחו לי"
+},
+{
+"en": "yes",
+"he": "כן"
+},
+{
+"en": "no",
+"he": "לא"
+},
+{
+"en": "maybe",
+"he": "אולי"
+},
+{
+"en": "good morning",
+"he": "בוקר טוב"
+},
+{
+"en": "good evening",
+"he": "ערב טוב"
+},
+{
+"en": "good night",
+"he": "לילה טוב"
+},
+{
+"en": "how are you?",
+"he": "מה שלומך?"
+},
+{
+"en": "I'm fine",
+"he": "אני בסדר"
+},
+{
+"en": "my name is",
+"he": "קוראים לי"
+},
+{
+"en": "nice to meet you",
+"he": "נעים להכיר"
+},
+{
+"en": "what",
+"he": "מה"
+},
+{
+"en": "where",
+"he": "איפה"
+},
+{
+"en": "when",
+"he": "מתי"
+},
+{
+"en": "who",
+"he": "מי"
+},
+{
+"en": "why",
+"he": "למה"
+},
+{
+"en": "how",
+"he": "איך"
+},
+{
+"en": "which",
+"he": "איזה"
+},
+{
+"en": "I",
+"he": "אני"
+},
+{
+"en": "you",
+"he": "אתה / את"
+},
+{
+"en": "he",
+"he": "הוא"
+},
+{
+"en": "she",
+"he": "היא"
+},
+{
+"en": "we",
+"he": "אנחנו"
+},
+{
+"en": "they",
+"he": "הם"
+},
+{
+"en": "this",
+"he": "זה"
+},
+{
+"en": "that",
+"he": "ההוא"
+},
+{
+"en": "here",
+"he": "כאן"
+},
+{
+"en": "there",
+"he": "שם"
+},
+{
+"en": "and",
+"he": "ו"
+},
+{
+"en": "but",
+"he": "אבל"
+},
+{
+"en": "or",
+"he": "או"
+},
+{
+"en": "because",
+"he": "כי"
+},
+{
+"en": "with",
+"he": "עם"
+},
+{
+"en": "without",
+"he": "בלי"
+},
+{
+"en": "very",
+"he": "מאוד"
+},
+{
+"en": "also",
+"he": "גם"
+},
+{
+"en": "again",
+"he": "שוב"
+},
+{
+"en": "only",
+"he": "רק"
+}
+]
+},
+{
+"id": "numbers",
+"name": "מספרים",
+"emoji": "🔢",
+"color": "#0EA5E9",
+"words": [
+{
+"en": "zero",
+"he": "אפס"
+},
+{
+"en": "one",
+"he": "אחד"
+},
+{
+"en": "two",
+"he": "שניים"
+},
+{
+"en": "three",
+"he": "שלושה"
+},
+{
+"en": "four",
+"he": "ארבעה"
+},
+{
+"en": "five",
+"he": "חמישה"
+},
+{
+"en": "six",
+"he": "שישה"
+},
+{
+"en": "seven",
+"he": "שבעה"
+},
+{
+"en": "eight",
+"he": "שמונה"
+},
+{
+"en": "nine",
+"he": "תשעה"
+},
+{
+"en": "ten",
+"he": "עשרה"
+},
+{
+"en": "eleven",
+"he": "אחד עשר"
+},
+{
+"en": "twelve",
+"he": "שנים עשר"
+},
+{
+"en": "fifteen",
+"he": "חמישה עשר"
+},
+{
+"en": "twenty",
+"he": "עשרים"
+},
+{
+"en": "thirty",
+"he": "שלושים"
+},
+{
+"en": "fifty",
+"he": "חמישים"
+},
+{
+"en": "hundred",
+"he": "מאה"
+},
+{
+"en": "thousand",
+"he": "אלף"
+},
+{
+"en": "million",
+"he": "מיליון"
+},
+{
+"en": "first",
+"he": "ראשון"
+},
+{
+"en": "second",
+"he": "שני"
+},
+{
+"en": "third",
+"he": "שלישי"
+},
+{
+"en": "last",
+"he": "אחרון"
+},
+{
+"en": "half",
+"he": "חצי"
+},
+{
+"en": "double",
+"he": "כפול"
+},
+{
+"en": "many",
+"he": "הרבה"
+},
+{
+"en": "few",
+"he": "מעט"
+},
+{
+"en": "some",
+"he": "כמה"
+},
+{
+"en": "all",
+"he": "הכול"
+},
+{
+"en": "none",
+"he": "אף אחד"
+}
+]
+},
+{
+"id": "time",
+"name": "זמן ותאריכים",
+"emoji": "📅",
+"color": "#F59E0B",
+"words": [
+{
+"en": "today",
+"he": "היום"
+},
+{
+"en": "tomorrow",
+"he": "מחר"
+},
+{
+"en": "yesterday",
+"he": "אתמול"
+},
+{
+"en": "now",
+"he": "עכשיו"
+},
+{
+"en": "later",
+"he": "אחר כך"
+},
+{
+"en": "soon",
+"he": "בקרוב"
+},
+{
+"en": "early",
+"he": "מוקדם"
+},
+{
+"en": "late",
+"he": "מאוחר"
+},
+{
+"en": "always",
+"he": "תמיד"
+},
+{
+"en": "never",
+"he": "אף פעם"
+},
+{
+"en": "sometimes",
+"he": "לפעמים"
+},
+{
+"en": "often",
+"he": "לעיתים קרובות"
+},
+{
+"en": "already",
+"he": "כבר"
+},
+{
+"en": "still",
+"he": "עדיין"
+},
+{
+"en": "week",
+"he": "שבוע"
+},
+{
+"en": "month",
+"he": "חודש"
+},
+{
+"en": "year",
+"he": "שנה"
+},
+{
+"en": "day",
+"he": "יום"
+},
+{
+"en": "hour",
+"he": "שעה"
+},
+{
+"en": "minute",
+"he": "דקה"
+},
+{
+"en": "moment",
+"he": "רגע"
+},
+{
+"en": "morning",
+"he": "בוקר"
+},
+{
+"en": "noon",
+"he": "צהריים"
+},
+{
+"en": "afternoon",
+"he": "אחר הצהריים"
+},
+{
+"en": "evening",
+"he": "ערב"
+},
+{
+"en": "night",
+"he": "לילה"
+},
+{
+"en": "Sunday",
+"he": "יום ראשון"
+},
+{
+"en": "Monday",
+"he": "יום שני"
+},
+{
+"en": "Tuesday",
+"he": "יום שלישי"
+},
+{
+"en": "Wednesday",
+"he": "יום רביעי"
+},
+{
+"en": "Thursday",
+"he": "יום חמישי"
+},
+{
+"en": "Friday",
+"he": "יום שישי"
+},
+{
+"en": "Saturday",
+"he": "שבת"
+},
+{
+"en": "weekend",
+"he": "סוף שבוע"
+},
+{
+"en": "holiday",
+"he": "חג"
+},
+{
+"en": "birthday",
+"he": "יום הולדת"
+},
+{
+"en": "calendar",
+"he": "לוח שנה"
+},
+{
+"en": "date",
+"he": "תאריך"
+}
+]
+},
+{
+"id": "actions",
+"name": "פעלים",
+"emoji": "🏃",
+"color": "#EF4444",
+"words": [
+{
+"en": "to eat",
+"he": "לאכול"
+},
+{
+"en": "to drink",
+"he": "לשתות"
+},
+{
+"en": "to sleep",
+"he": "לישון"
+},
+{
+"en": "to wake up",
+"he": "להתעורר"
+},
+{
+"en": "to run",
+"he": "לרוץ"
+},
+{
+"en": "to walk",
+"he": "ללכת ברגל"
+},
+{
+"en": "to sit",
+"he": "לשבת"
+},
+{
+"en": "to stand",
+"he": "לעמוד"
+},
+{
+"en": "to read",
+"he": "לקרוא"
+},
+{
+"en": "to write",
+"he": "לכתוב"
+},
+{
+"en": "to speak",
+"he": "לדבר"
+},
+{
+"en": "to listen",
+"he": "להקשיב"
+},
+{
+"en": "to see",
+"he": "לראות"
+},
+{
+"en": "to hear",
+"he": "לשמוע"
+},
+{
+"en": "to open",
+"he": "לפתוח"
+},
+{
+"en": "to close",
+"he": "לסגור"
+},
+{
+"en": "to give",
+"he": "לתת"
+},
+{
+"en": "to take",
+"he": "לקחת"
+},
+{
+"en": "to buy",
+"he": "לקנות"
+},
+{
+"en": "to sell",
+"he": "למכור"
+},
+{
+"en": "to make",
+"he": "ליצור / להכין"
+},
+{
+"en": "to want",
+"he": "לרצות"
+},
+{
+"en": "to need",
+"he": "להזדקק"
+},
+{
+"en": "to know",
+"he": "לדעת"
+},
+{
+"en": "to think",
+"he": "לחשוב"
+},
+{
+"en": "to understand",
+"he": "להבין"
+},
+{
+"en": "to learn",
+"he": "ללמוד"
+},
+{
+"en": "to teach",
+"he": "ללמד"
+},
+{
+"en": "to ask",
+"he": "לשאול"
+},
+{
+"en": "to answer",
+"he": "לענות"
+},
+{
+"en": "to help",
+"he": "לעזור"
+},
+{
+"en": "to love",
+"he": "לאהוב"
+},
+{
+"en": "to wait",
+"he": "לחכות"
+},
+{
+"en": "to find",
+"he": "למצוא"
+},
+{
+"en": "to lose",
+"he": "לאבד"
+},
+{
+"en": "to come",
+"he": "לבוא"
+},
+{
+"en": "to go",
+"he": "ללכת / לנסוע"
+},
+{
+"en": "to work",
+"he": "לעבוד"
+},
+{
+"en": "to play",
+"he": "לשחק"
+},
+{
+"en": "to start",
+"he": "להתחיל"
+},
+{
+"en": "to finish",
+"he": "לסיים"
+},
+{
+"en": "to stop",
+"he": "לעצור"
+},
+{
+"en": "to remember",
+"he": "לזכור"
+},
+{
+"en": "to forget",
+"he": "לשכוח"
+},
+{
+"en": "to try",
+"he": "לנסות"
+},
+{
+"en": "to use",
+"he": "להשתמש"
+},
+{
+"en": "to bring",
+"he": "להביא"
+},
+{
+"en": "to send",
+"he": "לשלוח"
+},
+{
+"en": "to receive",
+"he": "לקבל"
+},
+{
+"en": "to call",
+"he": "להתקשר"
+},
+{
+"en": "to wash",
+"he": "לשטוף"
+},
+{
+"en": "to clean",
+"he": "לנקות"
+},
+{
+"en": "to cook",
+"he": "לבשל"
+},
+{
+"en": "to build",
+"he": "לבנות"
+},
+{
+"en": "to break",
+"he": "לשבור"
+},
+{
+"en": "to carry",
+"he": "לשאת"
+},
+{
+"en": "to pay",
+"he": "לשלם"
+},
+{
+"en": "to choose",
+"he": "לבחור"
+},
+{
+"en": "to change",
+"he": "לשנות"
+},
+{
+"en": "to show",
+"he": "להראות"
+},
+{
+"en": "to wear",
+"he": "ללבוש"
+},
+{
+"en": "to live",
+"he": "לגור"
+},
+{
+"en": "to like",
+"he": "לחבב"
+},
+{
+"en": "to hope",
+"he": "לקוות"
+},
+{
+"en": "to travel",
+"he": "לנסוע לטיול"
+}
+]
+},
+{
+"id": "home",
+"name": "הבית",
+"emoji": "🏠",
+"color": "#14B8A6",
+"words": [
+{
+"en": "house",
+"he": "בית"
+},
+{
+"en": "apartment",
+"he": "דירה"
+},
+{
+"en": "door",
+"he": "דלת"
+},
+{
+"en": "window",
+"he": "חלון"
+},
+{
+"en": "room",
+"he": "חדר"
+},
+{
+"en": "kitchen",
+"he": "מטבח"
+},
+{
+"en": "bathroom",
+"he": "חדר רחצה"
+},
+{
+"en": "bedroom",
+"he": "חדר שינה"
+},
+{
+"en": "living room",
+"he": "סלון"
+},
+{
+"en": "floor",
+"he": "רצפה"
+},
+{
+"en": "wall",
+"he": "קיר"
+},
+{
+"en": "roof",
+"he": "גג"
+},
+{
+"en": "stairs",
+"he": "מדרגות"
+},
+{
+"en": "table",
+"he": "שולחן"
+},
+{
+"en": "chair",
+"he": "כיסא"
+},
+{
+"en": "bed",
+"he": "מיטה"
+},
+{
+"en": "sofa",
+"he": "ספה"
+},
+{
+"en": "key",
+"he": "מפתח"
+},
+{
+"en": "lamp",
+"he": "מנורה"
+},
+{
+"en": "clock",
+"he": "שעון קיר"
+},
+{
+"en": "mirror",
+"he": "מראה"
+},
+{
+"en": "bag",
+"he": "תיק"
+},
+{
+"en": "wallet",
+"he": "ארנק"
+},
+{
+"en": "glasses",
+"he": "משקפיים"
+},
+{
+"en": "umbrella",
+"he": "מטרייה"
+},
+{
+"en": "phone",
+"he": "טלפון"
+},
+{
+"en": "soap",
+"he": "סבון"
+},
+{
+"en": "towel",
+"he": "מגבת"
+},
+{
+"en": "toothbrush",
+"he": "מברשת שיניים"
+},
+{
+"en": "toothpaste",
+"he": "משחת שיניים"
+},
+{
+"en": "comb",
+"he": "מסרק"
+},
+{
+"en": "cup",
+"he": "כוס"
+},
+{
+"en": "plate",
+"he": "צלחת"
+},
+{
+"en": "bowl",
+"he": "קערה"
+},
+{
+"en": "fork",
+"he": "מזלג"
+},
+{
+"en": "knife",
+"he": "סכין"
+},
+{
+"en": "spoon",
+"he": "כף"
+},
+{
+"en": "bottle",
+"he": "בקבוק"
+},
+{
+"en": "pot",
+"he": "סיר"
+},
+{
+"en": "refrigerator",
+"he": "מקרר"
+},
+{
+"en": "oven",
+"he": "תנור"
+},
+{
+"en": "washing machine",
+"he": "מכונת כביסה"
+},
+{
+"en": "blanket",
+"he": "שמיכה"
+},
+{
+"en": "pillow",
+"he": "כרית"
+},
+{
+"en": "trash",
+"he": "זבל"
+},
+{
+"en": "box",
+"he": "קופסה"
+},
+{
+"en": "picture",
+"he": "תמונה על הקיר"
+},
+{
+"en": "gift",
+"he": "מתנה"
+}
+]
+},
+{
+"id": "food",
+"name": "אוכל ושתייה",
+"emoji": "🍎",
+"color": "#F97316",
+"words": [
+{
+"en": "water",
+"he": "מים"
+},
+{
+"en": "milk",
+"he": "חלב"
+},
+{
+"en": "coffee",
+"he": "קפה"
+},
+{
+"en": "tea",
+"he": "תה"
+},
+{
+"en": "juice",
+"he": "מיץ"
+},
+{
+"en": "bread",
+"he": "לחם"
+},
+{
+"en": "egg",
+"he": "ביצה"
+},
+{
+"en": "cheese",
+"he": "גבינה"
+},
+{
+"en": "butter",
+"he": "חמאה"
+},
+{
+"en": "rice",
+"he": "אורז"
+},
+{
+"en": "meat",
+"he": "בשר"
+},
+{
+"en": "chicken",
+"he": "עוף"
+},
+{
+"en": "fish",
+"he": "דג"
+},
+{
+"en": "soup",
+"he": "מרק"
+},
+{
+"en": "salad",
+"he": "סלט"
+},
+{
+"en": "sandwich",
+"he": "כריך"
+},
+{
+"en": "pasta",
+"he": "פסטה"
+},
+{
+"en": "pizza",
+"he": "פיצה"
+},
+{
+"en": "cake",
+"he": "עוגה"
+},
+{
+"en": "cookie",
+"he": "עוגייה"
+},
+{
+"en": "chocolate",
+"he": "שוקולד"
+},
+{
+"en": "ice cream",
+"he": "גלידה"
+},
+{
+"en": "honey",
+"he": "דבש"
+},
+{
+"en": "sugar",
+"he": "סוכר"
+},
+{
+"en": "salt",
+"he": "מלח"
+},
+{
+"en": "pepper",
+"he": "פלפל"
+},
+{
+"en": "oil",
+"he": "שמן"
+},
+{
+"en": "flour",
+"he": "קמח"
+},
+{
+"en": "apple",
+"he": "תפוח"
+},
+{
+"en": "banana",
+"he": "בננה"
+},
+{
+"en": "orange",
+"he": "תפוז"
+},
+{
+"en": "grapes",
+"he": "ענבים"
+},
+{
+"en": "lemon",
+"he": "לימון"
+},
+{
+"en": "strawberry",
+"he": "תות"
+},
+{
+"en": "watermelon",
+"he": "אבטיח"
+},
+{
+"en": "pear",
+"he": "אגס"
+},
+{
+"en": "tomato",
+"he": "עגבנייה"
+},
+{
+"en": "cucumber",
+"he": "מלפפון"
+},
+{
+"en": "potato",
+"he": "תפוח אדמה"
+},
+{
+"en": "onion",
+"he": "בצל"
+},
+{
+"en": "carrot",
+"he": "גזר"
+},
+{
+"en": "lettuce",
+"he": "חסה"
+},
+{
+"en": "garlic",
+"he": "שום"
+},
+{
+"en": "corn",
+"he": "תירס"
+},
+{
+"en": "beans",
+"he": "שעועית"
+},
+{
+"en": "nuts",
+"he": "אגוזים"
+},
+{
+"en": "breakfast",
+"he": "ארוחת בוקר"
+},
+{
+"en": "lunch",
+"he": "ארוחת צהריים"
+},
+{
+"en": "dinner",
+"he": "ארוחת ערב"
+},
+{
+"en": "hungry",
+"he": "רעב"
+},
+{
+"en": "thirsty",
+"he": "צמא"
+},
+{
+"en": "delicious",
+"he": "טעים"
+}
+]
+},
+{
+"id": "travel",
+"name": "נסיעות",
+"emoji": "✈️",
+"color": "#3B82F6",
+"words": [
+{
+"en": "airport",
+"he": "שדה תעופה"
+},
+{
+"en": "plane",
+"he": "מטוס"
+},
+{
+"en": "train",
+"he": "רכבת"
+},
+{
+"en": "bus",
+"he": "אוטובוס"
+},
+{
+"en": "car",
+"he": "מכונית"
+},
+{
+"en": "taxi",
+"he": "מונית"
+},
+{
+"en": "bicycle",
+"he": "אופניים"
+},
+{
+"en": "boat",
+"he": "סירה"
+},
+{
+"en": "ship",
+"he": "ספינה"
+},
+{
+"en": "ticket",
+"he": "כרטיס"
+},
+{
+"en": "passport",
+"he": "דרכון"
+},
+{
+"en": "luggage",
+"he": "מזוודות"
+},
+{
+"en": "hotel",
+"he": "מלון"
+},
+{
+"en": "reservation",
+"he": "הזמנה"
+},
+{
+"en": "map",
+"he": "מפה"
+},
+{
+"en": "station",
+"he": "תחנה"
+},
+{
+"en": "road",
+"he": "כביש"
+},
+{
+"en": "bridge",
+"he": "גשר"
+},
+{
+"en": "traffic",
+"he": "תנועה"
+},
+{
+"en": "left",
+"he": "שמאלה"
+},
+{
+"en": "right",
+"he": "ימינה"
+},
+{
+"en": "straight",
+"he": "ישר"
+},
+{
+"en": "far",
+"he": "רחוק"
+},
+{
+"en": "near",
+"he": "קרוב"
+},
+{
+"en": "corner",
+"he": "פינה"
+},
+{
+"en": "city",
+"he": "עיר"
+},
+{
+"en": "country",
+"he": "מדינה"
+},
+{
+"en": "village",
+"he": "כפר"
+},
+{
+"en": "beach",
+"he": "חוף"
+},
+{
+"en": "mountain",
+"he": "הר"
+},
+{
+"en": "tourist",
+"he": "תייר"
+},
+{
+"en": "trip",
+"he": "טיול"
+},
+{
+"en": "vacation",
+"he": "חופשה"
+},
+{
+"en": "to leave",
+"he": "לעזוב"
+},
+{
+"en": "lost",
+"he": "אבוד"
+},
+{
+"en": "address",
+"he": "כתובת"
+},
+{
+"en": "direction",
+"he": "כיוון"
+},
+{
+"en": "entrance",
+"he": "כניסה"
+},
+{
+"en": "exit",
+"he": "יציאה"
+},
+{
+"en": "gas station",
+"he": "תחנת דלק"
+},
+{
+"en": "parking",
+"he": "חניה"
+},
+{
+"en": "flight",
+"he": "טיסה"
+},
+{
+"en": "delay",
+"he": "עיכוב"
+},
+{
+"en": "Where is the bathroom?",
+"he": "איפה השירותים?"
+},
+{
+"en": "How much does it cost?",
+"he": "כמה זה עולה?"
+},
+{
+"en": "I need help",
+"he": "אני צריך עזרה"
+},
+{
+"en": "I don't understand",
+"he": "אני לא מבין"
+},
+{
+"en": "Can you help me?",
+"he": "אתה יכול לעזור לי?"
+},
+{
+"en": "Where is the station?",
+"he": "איפה התחנה?"
+}
+]
+},
+{
+"id": "people",
+"name": "אנשים ומשפחה",
+"emoji": "👨‍👩‍👧",
+"color": "#EC4899",
+"words": [
+{
+"en": "mother",
+"he": "אמא"
+},
+{
+"en": "father",
+"he": "אבא"
+},
+{
+"en": "parents",
+"he": "הורים"
+},
+{
+"en": "brother",
+"he": "אח"
+},
+{
+"en": "sister",
+"he": "אחות"
+},
+{
+"en": "son",
+"he": "בן"
+},
+{
+"en": "daughter",
+"he": "בת"
+},
+{
+"en": "grandfather",
+"he": "סבא"
+},
+{
+"en": "grandmother",
+"he": "סבתא"
+},
+{
+"en": "uncle",
+"he": "דוד"
+},
+{
+"en": "aunt",
+"he": "דודה"
+},
+{
+"en": "cousin",
+"he": "בן דוד"
+},
+{
+"en": "husband",
+"he": "בעל"
+},
+{
+"en": "wife",
+"he": "אישה (נשואה)"
+},
+{
+"en": "baby",
+"he": "תינוק"
+},
+{
+"en": "child",
+"he": "ילד"
+},
+{
+"en": "children",
+"he": "ילדים"
+},
+{
+"en": "man",
+"he": "גבר"
+},
+{
+"en": "woman",
+"he": "אישה"
+},
+{
+"en": "boy",
+"he": "נער"
+},
+{
+"en": "girl",
+"he": "נערה"
+},
+{
+"en": "friend",
+"he": "חבר"
+},
+{
+"en": "neighbor",
+"he": "שכן"
+},
+{
+"en": "teacher",
+"he": "מורה"
+},
+{
+"en": "student",
+"he": "תלמיד"
+},
+{
+"en": "doctor",
+"he": "רופא"
+},
+{
+"en": "nurse",
+"he": "אחות רפואית"
+},
+{
+"en": "driver",
+"he": "נהג"
+},
+{
+"en": "police officer",
+"he": "שוטר"
+},
+{
+"en": "boss",
+"he": "מנהל"
+},
+{
+"en": "guest",
+"he": "אורח"
+},
+{
+"en": "family",
+"he": "משפחה"
+},
+{
+"en": "people",
+"he": "אנשים"
+},
+{
+"en": "person",
+"he": "אדם"
+},
+{
+"en": "king",
+"he": "מלך"
+},
+{
+"en": "farmer",
+"he": "חקלאי"
+},
+{
+"en": "baker",
+"he": "אופה"
+},
+{
+"en": "chef",
+"he": "שף"
+},
+{
+"en": "worker",
+"he": "עובד"
+}
+]
+},
+{
+"id": "feelings",
+"name": "רגשות ותארים",
+"emoji": "😊",
+"color": "#A855F7",
+"words": [
+{
+"en": "happy",
+"he": "שמח"
+},
+{
+"en": "sad",
+"he": "עצוב"
+},
+{
+"en": "angry",
+"he": "כועס"
+},
+{
+"en": "tired",
+"he": "עייף"
+},
+{
+"en": "scared",
+"he": "מפחד"
+},
+{
+"en": "excited",
+"he": "נרגש"
+},
+{
+"en": "bored",
+"he": "משועמם"
+},
+{
+"en": "sick",
+"he": "חולה"
+},
+{
+"en": "healthy",
+"he": "בריא"
+},
+{
+"en": "nervous",
+"he": "לחוץ"
+},
+{
+"en": "proud",
+"he": "גאה"
+},
+{
+"en": "surprised",
+"he": "מופתע"
+},
+{
+"en": "calm",
+"he": "רגוע"
+},
+{
+"en": "lonely",
+"he": "בודד"
+},
+{
+"en": "worried",
+"he": "מודאג"
+},
+{
+"en": "big",
+"he": "גדול"
+},
+{
+"en": "small",
+"he": "קטן"
+},
+{
+"en": "long",
+"he": "ארוך"
+},
+{
+"en": "short",
+"he": "קצר"
+},
+{
+"en": "tall",
+"he": "גבוה"
+},
+{
+"en": "fast",
+"he": "מהיר"
+},
+{
+"en": "slow",
+"he": "איטי"
+},
+{
+"en": "hot",
+"he": "חם"
+},
+{
+"en": "cold",
+"he": "קר"
+},
+{
+"en": "warm",
+"he": "חמים"
+},
+{
+"en": "new",
+"he": "חדש"
+},
+{
+"en": "old",
+"he": "ישן"
+},
+{
+"en": "young",
+"he": "צעיר"
+},
+{
+"en": "good",
+"he": "טוב"
+},
+{
+"en": "bad",
+"he": "רע"
+},
+{
+"en": "easy",
+"he": "קל"
+},
+{
+"en": "difficult",
+"he": "קשה"
+},
+{
+"en": "beautiful",
+"he": "יפה"
+},
+{
+"en": "ugly",
+"he": "מכוער"
+},
+{
+"en": "clean",
+"he": "נקי"
+},
+{
+"en": "dirty",
+"he": "מלוכלך"
+},
+{
+"en": "expensive",
+"he": "יקר"
+},
+{
+"en": "cheap",
+"he": "זול"
+},
+{
+"en": "full",
+"he": "מלא"
+},
+{
+"en": "empty",
+"he": "ריק"
+},
+{
+"en": "quiet",
+"he": "שקט"
+},
+{
+"en": "loud",
+"he": "רועש"
+},
+{
+"en": "heavy",
+"he": "כבד"
+},
+{
+"en": "light",
+"he": "קל משקל"
+},
+{
+"en": "strong",
+"he": "חזק"
+},
+{
+"en": "weak",
+"he": "חלש"
+},
+{
+"en": "rich",
+"he": "עשיר"
+},
+{
+"en": "poor",
+"he": "עני"
+},
+{
+"en": "safe",
+"he": "בטוח"
+},
+{
+"en": "dangerous",
+"he": "מסוכן"
+},
+{
+"en": "free",
+"he": "חופשי"
+},
+{
+"en": "busy",
+"he": "עסוק"
+},
+{
+"en": "ready",
+"he": "מוכן"
+},
+{
+"en": "wrong",
+"he": "שגוי"
+},
+{
+"en": "true",
+"he": "נכון"
+},
+{
+"en": "important",
+"he": "חשוב"
+},
+{
+"en": "interesting",
+"he": "מעניין"
+},
+{
+"en": "wet",
+"he": "רטוב"
+},
+{
+"en": "dry",
+"he": "יבש"
+}
+]
+},
+{
+"id": "body",
+"name": "גוף ובריאות",
+"emoji": "🩺",
+"color": "#10B981",
+"words": [
+{
+"en": "head",
+"he": "ראש"
+},
+{
+"en": "face",
+"he": "פנים"
+},
+{
+"en": "eye",
+"he": "עין"
+},
+{
+"en": "ear",
+"he": "אוזן"
+},
+{
+"en": "nose",
+"he": "אף"
+},
+{
+"en": "mouth",
+"he": "פה"
+},
+{
+"en": "tooth",
+"he": "שן"
+},
+{
+"en": "tongue",
+"he": "לשון"
+},
+{
+"en": "neck",
+"he": "צוואר"
+},
+{
+"en": "shoulder",
+"he": "כתף"
+},
+{
+"en": "arm",
+"he": "זרוע"
+},
+{
+"en": "hand",
+"he": "יד"
+},
+{
+"en": "finger",
+"he": "אצבע"
+},
+{
+"en": "back",
+"he": "גב"
+},
+{
+"en": "stomach",
+"he": "בטן"
+},
+{
+"en": "leg",
+"he": "רגל"
+},
+{
+"en": "knee",
+"he": "ברך"
+},
+{
+"en": "foot",
+"he": "כף רגל"
+},
+{
+"en": "hair",
+"he": "שיער"
+},
+{
+"en": "skin",
+"he": "עור"
+},
+{
+"en": "heart",
+"he": "לב"
+},
+{
+"en": "blood",
+"he": "דם"
+},
+{
+"en": "bone",
+"he": "עצם"
+},
+{
+"en": "health",
+"he": "בריאות"
+},
+{
+"en": "medicine",
+"he": "תרופה"
+},
+{
+"en": "hospital",
+"he": "בית חולים"
+},
+{
+"en": "pharmacy",
+"he": "בית מרקחת"
+},
+{
+"en": "pain",
+"he": "כאב"
+},
+{
+"en": "fever",
+"he": "חום"
+},
+{
+"en": "cough",
+"he": "שיעול"
+},
+{
+"en": "headache",
+"he": "כאב ראש"
+},
+{
+"en": "a cold",
+"he": "הצטננות"
+},
+{
+"en": "ambulance",
+"he": "אמבולנס"
+},
+{
+"en": "to hurt",
+"he": "לכאוב"
+},
+{
+"en": "to rest",
+"he": "לנוח"
+},
+{
+"en": "bandage",
+"he": "תחבושת"
+},
+{
+"en": "appointment",
+"he": "תור לרופא"
+},
+{
+"en": "allergy",
+"he": "אלרגיה"
+}
+]
+},
+{
+"id": "clothes",
+"name": "לבוש",
+"emoji": "👕",
+"color": "#8B5CF6",
+"words": [
+{
+"en": "shirt",
+"he": "חולצה"
+},
+{
+"en": "pants",
+"he": "מכנסיים"
+},
+{
+"en": "dress",
+"he": "שמלה"
+},
+{
+"en": "skirt",
+"he": "חצאית"
+},
+{
+"en": "shoes",
+"he": "נעליים"
+},
+{
+"en": "socks",
+"he": "גרביים"
+},
+{
+"en": "coat",
+"he": "מעיל"
+},
+{
+"en": "jacket",
+"he": "ז'קט"
+},
+{
+"en": "hat",
+"he": "כובע"
+},
+{
+"en": "scarf",
+"he": "צעיף"
+},
+{
+"en": "gloves",
+"he": "כפפות"
+},
+{
+"en": "belt",
+"he": "חגורה"
+},
+{
+"en": "pocket",
+"he": "כיס"
+},
+{
+"en": "button",
+"he": "כפתור"
+},
+{
+"en": "zipper",
+"he": "רוכסן"
+},
+{
+"en": "sweater",
+"he": "סוודר"
+},
+{
+"en": "tie",
+"he": "עניבה"
+},
+{
+"en": "suit",
+"he": "חליפה"
+},
+{
+"en": "boots",
+"he": "מגפיים"
+},
+{
+"en": "sandals",
+"he": "סנדלים"
+},
+{
+"en": "pajamas",
+"he": "פיג'מה"
+},
+{
+"en": "uniform",
+"he": "מדים"
+},
+{
+"en": "size",
+"he": "מידה"
+},
+{
+"en": "cotton",
+"he": "כותנה"
+},
+{
+"en": "wool",
+"he": "צמר"
+},
+{
+"en": "to dress",
+"he": "להתלבש"
+},
+{
+"en": "sleeve",
+"he": "שרוול"
+},
+{
+"en": "collar",
+"he": "צווארון"
+},
+{
+"en": "ring",
+"he": "טבעת"
+},
+{
+"en": "watch",
+"he": "שעון יד"
+},
+{
+"en": "bracelet",
+"he": "צמיד"
+}
+]
+},
+{
+"id": "city",
+"name": "עיר ומקומות",
+"emoji": "🏙️",
+"color": "#64748B",
+"words": [
+{
+"en": "street",
+"he": "רחוב"
+},
+{
+"en": "building",
+"he": "בניין"
+},
+{
+"en": "market",
+"he": "שוק"
+},
+{
+"en": "supermarket",
+"he": "סופרמרקט"
+},
+{
+"en": "bank",
+"he": "בנק"
+},
+{
+"en": "post office",
+"he": "דואר"
+},
+{
+"en": "library",
+"he": "ספרייה"
+},
+{
+"en": "museum",
+"he": "מוזיאון"
+},
+{
+"en": "park",
+"he": "פארק"
+},
+{
+"en": "garden",
+"he": "גינה"
+},
+{
+"en": "square",
+"he": "כיכר"
+},
+{
+"en": "restaurant",
+"he": "מסעדה"
+},
+{
+"en": "cafe",
+"he": "בית קפה"
+},
+{
+"en": "bakery",
+"he": "מאפייה"
+},
+{
+"en": "police station",
+"he": "תחנת משטרה"
+},
+{
+"en": "factory",
+"he": "מפעל"
+},
+{
+"en": "farm",
+"he": "חווה"
+},
+{
+"en": "synagogue",
+"he": "בית כנסת"
+},
+{
+"en": "elevator",
+"he": "מעלית"
+},
+{
+"en": "sidewalk",
+"he": "מדרכה"
+},
+{
+"en": "traffic light",
+"he": "רמזור"
+},
+{
+"en": "crossing",
+"he": "מעבר חציה"
+},
+{
+"en": "neighborhood",
+"he": "שכונה"
+},
+{
+"en": "center",
+"he": "מרכז"
+},
+{
+"en": "north",
+"he": "צפון"
+},
+{
+"en": "south",
+"he": "דרום"
+},
+{
+"en": "east",
+"he": "מזרח"
+},
+{
+"en": "west",
+"he": "מערב"
+},
+{
+"en": "port",
+"he": "נמל"
+},
+{
+"en": "tower",
+"he": "מגדל"
+},
+{
+"en": "fountain",
+"he": "מזרקה"
+},
+{
+"en": "bus stop",
+"he": "תחנת אוטובוס"
+},
+{
+"en": "intersection",
+"he": "צומת"
+},
+{
+"en": "highway",
+"he": "כביש מהיר"
+},
+{
+"en": "tunnel",
+"he": "מנהרה"
+},
+{
+"en": "playground",
+"he": "מגרש משחקים"
+}
+]
+},
+{
+"id": "school",
+"name": "לימודים ועבודה",
+"emoji": "🎓",
+"color": "#0891B2",
+"words": [
+{
+"en": "school",
+"he": "בית ספר"
+},
+{
+"en": "class",
+"he": "כיתה"
+},
+{
+"en": "lesson",
+"he": "שיעור"
+},
+{
+"en": "homework",
+"he": "שיעורי בית"
+},
+{
+"en": "exam",
+"he": "מבחן"
+},
+{
+"en": "book",
+"he": "ספר"
+},
+{
+"en": "notebook",
+"he": "מחברת"
+},
+{
+"en": "pen",
+"he": "עט"
+},
+{
+"en": "pencil",
+"he": "עיפרון"
+},
+{
+"en": "paper",
+"he": "נייר"
+},
+{
+"en": "eraser",
+"he": "מחק"
+},
+{
+"en": "ruler",
+"he": "סרגל"
+},
+{
+"en": "desk",
+"he": "שולחן כתיבה"
+},
+{
+"en": "board",
+"he": "לוח"
+},
+{
+"en": "grade",
+"he": "ציון"
+},
+{
+"en": "subject",
+"he": "מקצוע"
+},
+{
+"en": "office",
+"he": "משרד"
+},
+{
+"en": "meeting",
+"he": "פגישה"
+},
+{
+"en": "job",
+"he": "עבודה"
+},
+{
+"en": "salary",
+"he": "משכורת"
+},
+{
+"en": "company",
+"he": "חברה"
+},
+{
+"en": "email",
+"he": "דוא״ל"
+},
+{
+"en": "message",
+"he": "הודעה"
+},
+{
+"en": "problem",
+"he": "בעיה"
+},
+{
+"en": "question",
+"he": "שאלה"
+},
+{
+"en": "answer",
+"he": "תשובה"
+},
+{
+"en": "idea",
+"he": "רעיון"
+},
+{
+"en": "plan",
+"he": "תוכנית"
+},
+{
+"en": "project",
+"he": "פרויקט"
+},
+{
+"en": "deadline",
+"he": "מועד אחרון"
+},
+{
+"en": "language",
+"he": "שפה"
+},
+{
+"en": "word",
+"he": "מילה"
+},
+{
+"en": "sentence",
+"he": "משפט"
+},
+{
+"en": "example",
+"he": "דוגמה"
+},
+{
+"en": "letter",
+"he": "מכתב"
+},
+{
+"en": "report",
+"he": "דוח"
+},
+{
+"en": "colleague",
+"he": "עמית לעבודה"
+},
+{
+"en": "customer",
+"he": "לקוח"
+},
+{
+"en": "contract",
+"he": "חוזה"
+},
+{
+"en": "schedule",
+"he": "לוח זמנים"
+},
+{
+"en": "task",
+"he": "משימה"
+},
+{
+"en": "team",
+"he": "צוות"
+},
+{
+"en": "skill",
+"he": "מיומנות"
+},
+{
+"en": "experience",
+"he": "ניסיון"
+},
+{
+"en": "interview",
+"he": "ראיון עבודה"
+},
+{
+"en": "result",
+"he": "תוצאה"
+},
+{
+"en": "mistake",
+"he": "טעות"
+},
+{
+"en": "vocabulary",
+"he": "אוצר מילים"
+},
+{
+"en": "grammar",
+"he": "דקדוק"
+},
+{
+"en": "translation",
+"he": "תרגום"
+},
+{
+"en": "dictionary",
+"he": "מילון"
+}
+]
+},
+{
+"id": "nature",
+"name": "טבע ומזג אוויר",
+"emoji": "🌤️",
+"color": "#22C55E",
+"words": [
+{
+"en": "sun",
+"he": "שמש"
+},
+{
+"en": "moon",
+"he": "ירח"
+},
+{
+"en": "star",
+"he": "כוכב"
+},
+{
+"en": "sky",
+"he": "שמיים"
+},
+{
+"en": "cloud",
+"he": "ענן"
+},
+{
+"en": "rain",
+"he": "גשם"
+},
+{
+"en": "snow",
+"he": "שלג"
+},
+{
+"en": "wind",
+"he": "רוח"
+},
+{
+"en": "storm",
+"he": "סערה"
+},
+{
+"en": "weather",
+"he": "מזג אוויר"
+},
+{
+"en": "fog",
+"he": "ערפל"
+},
+{
+"en": "thunder",
+"he": "רעם"
+},
+{
+"en": "lightning",
+"he": "ברק"
+},
+{
+"en": "rainbow",
+"he": "קשת"
+},
+{
+"en": "tree",
+"he": "עץ"
+},
+{
+"en": "flower",
+"he": "פרח"
+},
+{
+"en": "grass",
+"he": "דשא"
+},
+{
+"en": "leaf",
+"he": "עלה"
+},
+{
+"en": "forest",
+"he": "יער"
+},
+{
+"en": "river",
+"he": "נהר"
+},
+{
+"en": "sea",
+"he": "ים"
+},
+{
+"en": "lake",
+"he": "אגם"
+},
+{
+"en": "desert",
+"he": "מדבר"
+},
+{
+"en": "rock",
+"he": "סלע"
+},
+{
+"en": "sand",
+"he": "חול"
+},
+{
+"en": "fire",
+"he": "אש"
+},
+{
+"en": "earth",
+"he": "אדמה"
+},
+{
+"en": "ice",
+"he": "קרח"
+},
+{
+"en": "hill",
+"he": "גבעה"
+},
+{
+"en": "valley",
+"he": "עמק"
+},
+{
+"en": "island",
+"he": "אי"
+},
+{
+"en": "wave",
+"he": "גל"
+},
+{
+"en": "field",
+"he": "שדה"
+},
+{
+"en": "spring",
+"he": "אביב"
+},
+{
+"en": "summer",
+"he": "קיץ"
+},
+{
+"en": "autumn",
+"he": "סתיו"
+},
+{
+"en": "winter",
+"he": "חורף"
+},
+{
+"en": "season",
+"he": "עונה"
+},
+{
+"en": "temperature",
+"he": "טמפרטורה"
+},
+{
+"en": "sunny",
+"he": "שמשי"
+},
+{
+"en": "cloudy",
+"he": "מעונן"
+},
+{
+"en": "rainy",
+"he": "גשום"
+},
+{
+"en": "windy",
+"he": "סוער"
+},
+{
+"en": "It is raining",
+"he": "יורד גשם"
+},
+{
+"en": "It is hot today",
+"he": "חם היום"
+},
+{
+"en": "world",
+"he": "עולם"
+},
+{
+"en": "nature",
+"he": "טבע"
+},
+{
+"en": "air",
+"he": "אוויר"
+},
+{
+"en": "shadow",
+"he": "צל"
+},
+{
+"en": "seed",
+"he": "זרע"
+},
+{
+"en": "branch",
+"he": "ענף"
+},
+{
+"en": "root",
+"he": "שורש"
+}
+]
+},
+{
+"id": "animals",
+"name": "חיות",
+"emoji": "🐾",
+"color": "#CA8A04",
+"words": [
+{
+"en": "dog",
+"he": "כלב"
+},
+{
+"en": "cat",
+"he": "חתול"
+},
+{
+"en": "bird",
+"he": "ציפור"
+},
+{
+"en": "horse",
+"he": "סוס"
+},
+{
+"en": "cow",
+"he": "פרה"
+},
+{
+"en": "sheep",
+"he": "כבשה"
+},
+{
+"en": "goat",
+"he": "עז"
+},
+{
+"en": "hen",
+"he": "תרנגולת"
+},
+{
+"en": "donkey",
+"he": "חמור"
+},
+{
+"en": "camel",
+"he": "גמל"
+},
+{
+"en": "lion",
+"he": "אריה"
+},
+{
+"en": "tiger",
+"he": "נמר"
+},
+{
+"en": "bear",
+"he": "דוב"
+},
+{
+"en": "wolf",
+"he": "זאב"
+},
+{
+"en": "fox",
+"he": "שועל"
+},
+{
+"en": "elephant",
+"he": "פיל"
+},
+{
+"en": "giraffe",
+"he": "ג'ירפה"
+},
+{
+"en": "monkey",
+"he": "קוף"
+},
+{
+"en": "mouse",
+"he": "עכבר"
+},
+{
+"en": "rabbit",
+"he": "ארנב"
+},
+{
+"en": "snake",
+"he": "נחש"
+},
+{
+"en": "whale",
+"he": "לווייתן"
+},
+{
+"en": "dolphin",
+"he": "דולפין"
+},
+{
+"en": "eagle",
+"he": "נשר"
+},
+{
+"en": "owl",
+"he": "ינשוף"
+},
+{
+"en": "duck",
+"he": "ברווז"
+},
+{
+"en": "bee",
+"he": "דבורה"
+},
+{
+"en": "butterfly",
+"he": "פרפר"
+},
+{
+"en": "ant",
+"he": "נמלה"
+},
+{
+"en": "fly",
+"he": "זבוב"
+},
+{
+"en": "spider",
+"he": "עכביש"
+},
+{
+"en": "frog",
+"he": "צפרדע"
+},
+{
+"en": "turtle",
+"he": "צב"
+},
+{
+"en": "deer",
+"he": "צבי"
+},
+{
+"en": "pigeon",
+"he": "יונה"
+},
+{
+"en": "pet",
+"he": "חיית מחמד"
+},
+{
+"en": "wing",
+"he": "כנף"
+},
+{
+"en": "tail",
+"he": "זנב"
+},
+{
+"en": "nest",
+"he": "קן"
+},
+{
+"en": "animal",
+"he": "חיה"
+},
+{
+"en": "zoo",
+"he": "גן חיות"
+},
+{
+"en": "insect",
+"he": "חרק"
+}
+]
+},
+{
+"id": "colors",
+"name": "צבעים וצורות",
+"emoji": "🎨",
+"color": "#DB2777",
+"words": [
+{
+"en": "red",
+"he": "אדום"
+},
+{
+"en": "blue",
+"he": "כחול"
+},
+{
+"en": "green",
+"he": "ירוק"
+},
+{
+"en": "yellow",
+"he": "צהוב"
+},
+{
+"en": "black",
+"he": "שחור"
+},
+{
+"en": "white",
+"he": "לבן"
+},
+{
+"en": "orange color",
+"he": "כתום"
+},
+{
+"en": "pink",
+"he": "ורוד"
+},
+{
+"en": "purple",
+"he": "סגול"
+},
+{
+"en": "brown",
+"he": "חום"
+},
+{
+"en": "gray",
+"he": "אפור"
+},
+{
+"en": "gold",
+"he": "זהב"
+},
+{
+"en": "silver",
+"he": "כסף (מתכת)"
+},
+{
+"en": "light blue",
+"he": "תכלת"
+},
+{
+"en": "dark",
+"he": "כהה"
+},
+{
+"en": "bright",
+"he": "בהיר"
+},
+{
+"en": "circle",
+"he": "עיגול"
+},
+{
+"en": "triangle",
+"he": "משולש"
+},
+{
+"en": "rectangle",
+"he": "מלבן"
+},
+{
+"en": "line",
+"he": "קו"
+},
+{
+"en": "point",
+"he": "נקודה"
+},
+{
+"en": "shape",
+"he": "צורה"
+},
+{
+"en": "color",
+"he": "צבע"
+},
+{
+"en": "round",
+"he": "עגול"
+},
+{
+"en": "stripe",
+"he": "פס"
+},
+{
+"en": "pattern",
+"he": "דוגמה"
+}
+]
+},
+{
+"id": "tech",
+"name": "טכנולוגיה",
+"emoji": "💻",
+"color": "#4F46E5",
+"words": [
+{
+"en": "computer",
+"he": "מחשב"
+},
+{
+"en": "screen",
+"he": "מסך"
+},
+{
+"en": "keyboard",
+"he": "מקלדת"
+},
+{
+"en": "computer mouse",
+"he": "עכבר מחשב"
+},
+{
+"en": "internet",
+"he": "אינטרנט"
+},
+{
+"en": "website",
+"he": "אתר"
+},
+{
+"en": "password",
+"he": "סיסמה"
+},
+{
+"en": "file",
+"he": "קובץ"
+},
+{
+"en": "folder",
+"he": "תיקייה"
+},
+{
+"en": "app",
+"he": "אפליקציה"
+},
+{
+"en": "battery",
+"he": "סוללה"
+},
+{
+"en": "charger",
+"he": "מטען"
+},
+{
+"en": "camera",
+"he": "מצלמה"
+},
+{
+"en": "photo",
+"he": "צילום"
+},
+{
+"en": "video",
+"he": "סרטון"
+},
+{
+"en": "to download",
+"he": "להוריד"
+},
+{
+"en": "to upload",
+"he": "להעלות"
+},
+{
+"en": "to click",
+"he": "ללחוץ"
+},
+{
+"en": "to type",
+"he": "להקליד"
+},
+{
+"en": "to save",
+"he": "לשמור"
+},
+{
+"en": "to delete",
+"he": "למחוק"
+},
+{
+"en": "to print",
+"he": "להדפיס"
+},
+{
+"en": "printer",
+"he": "מדפסת"
+},
+{
+"en": "wifi",
+"he": "וויי־פיי"
+},
+{
+"en": "signal",
+"he": "קליטה"
+},
+{
+"en": "link",
+"he": "קישור"
+},
+{
+"en": "text message",
+"he": "הודעת טקסט"
+},
+{
+"en": "to search",
+"he": "לחפש"
+},
+{
+"en": "account",
+"he": "חשבון"
+},
+{
+"en": "update",
+"he": "עדכון"
+},
+{
+"en": "headphones",
+"he": "אוזניות"
+},
+{
+"en": "speaker",
+"he": "רמקול"
+},
+{
+"en": "cable",
+"he": "כבל"
+}
+]
+},
+{
+"id": "shopping",
+"name": "קניות ומסעדה",
+"emoji": "🛒",
+"color": "#E11D48",
+"words": [
+{
+"en": "money",
+"he": "כסף"
+},
+{
+"en": "shop",
+"he": "חנות"
+},
+{
+"en": "price",
+"he": "מחיר"
+},
+{
+"en": "discount",
+"he": "הנחה"
+},
+{
+"en": "sale",
+"he": "מבצע"
+},
+{
+"en": "receipt",
+"he": "קבלה"
+},
+{
+"en": "cash",
+"he": "מזומן"
+},
+{
+"en": "credit card",
+"he": "כרטיס אשראי"
+},
+{
+"en": "coin",
+"he": "מטבע"
+},
+{
+"en": "change (money)",
+"he": "עודף"
+},
+{
+"en": "cashier",
+"he": "קופאי"
+},
+{
+"en": "basket",
+"he": "סל"
+},
+{
+"en": "cart",
+"he": "עגלה"
+},
+{
+"en": "plastic bag",
+"he": "שקית"
+},
+{
+"en": "to cost",
+"he": "לעלות"
+},
+{
+"en": "to spend",
+"he": "להוציא כסף"
+},
+{
+"en": "to save money",
+"he": "לחסוך"
+},
+{
+"en": "to order",
+"he": "להזמין"
+},
+{
+"en": "to return",
+"he": "להחזיר"
+},
+{
+"en": "to exchange",
+"he": "להחליף"
+},
+{
+"en": "free of charge",
+"he": "בחינם"
+},
+{
+"en": "total",
+"he": "סך הכול"
+},
+{
+"en": "pair",
+"he": "זוג"
+},
+{
+"en": "quantity",
+"he": "כמות"
+},
+{
+"en": "kilogram",
+"he": "קילוגרם"
+},
+{
+"en": "delivery",
+"he": "משלוח"
+},
+{
+"en": "Do you have...?",
+"he": "יש לכם...?"
+},
+{
+"en": "I'd like to buy",
+"he": "אני רוצה לקנות"
+},
+{
+"en": "bill",
+"he": "חשבון במסעדה"
+},
+{
+"en": "tip",
+"he": "טיפ"
+},
+{
+"en": "menu",
+"he": "תפריט"
+},
+{
+"en": "waiter",
+"he": "מלצר"
+},
+{
+"en": "table for two",
+"he": "שולחן לשניים"
+}
+]
+},
+{
+"id": "phrases",
+"name": "ביטויים שימושיים",
+"emoji": "💬",
+"color": "#7C3AED",
+"words": [
+{
+"en": "I don't know",
+"he": "אני לא יודע"
+},
+{
+"en": "I understand",
+"he": "אני מבין"
+},
+{
+"en": "Can you repeat that?",
+"he": "אפשר לחזור על זה?"
+},
+{
+"en": "Speak slowly, please",
+"he": "דבר לאט בבקשה"
+},
+{
+"en": "What does this mean?",
+"he": "מה זה אומר?"
+},
+{
+"en": "How do you say...?",
+"he": "איך אומרים...?"
+},
+{
+"en": "I'm learning English",
+"he": "אני לומד אנגלית"
+},
+{
+"en": "Do you speak English?",
+"he": "אתה מדבר אנגלית?"
+},
+{
+"en": "Just a moment",
+"he": "רק רגע"
+},
+{
+"en": "Of course",
+"he": "בטח"
+},
+{
+"en": "No problem",
+"he": "אין בעיה"
+},
+{
+"en": "I agree",
+"he": "אני מסכים"
+},
+{
+"en": "I don't agree",
+"he": "אני לא מסכים"
+},
+{
+"en": "Good luck",
+"he": "בהצלחה"
+},
+{
+"en": "Congratulations",
+"he": "מזל טוב"
+},
+{
+"en": "Take care",
+"he": "תשמור על עצמך"
+},
+{
+"en": "See you later",
+"he": "נתראה מאוחר יותר"
+},
+{
+"en": "See you tomorrow",
+"he": "נתראה מחר"
+},
+{
+"en": "Welcome",
+"he": "ברוך הבא"
+},
+{
+"en": "Have a nice day",
+"he": "שיהיה לך יום נעים"
+},
+{
+"en": "I'm hungry",
+"he": "אני רעב"
+},
+{
+"en": "I'm tired",
+"he": "אני עייף"
+},
+{
+"en": "I'm late",
+"he": "אני מאחר"
+},
+{
+"en": "I'm lost",
+"he": "אני אבוד"
+},
+{
+"en": "I like it",
+"he": "זה מוצא חן בעיניי"
+},
+{
+"en": "What time is it?",
+"he": "מה השעה?"
+},
+{
+"en": "What is your name?",
+"he": "איך קוראים לך?"
+},
+{
+"en": "Where are you from?",
+"he": "מאיפה אתה?"
+},
+{
+"en": "I am from Israel",
+"he": "אני מישראל"
+},
+{
+"en": "How old are you?",
+"he": "בן כמה אתה?"
+},
+{
+"en": "Can I help you?",
+"he": "אפשר לעזור לך?"
+},
+{
+"en": "Please sit down",
+"he": "בבקשה שב"
+},
+{
+"en": "Come in",
+"he": "היכנס"
+},
+{
+"en": "Wait here",
+"he": "חכה כאן"
+},
+{
+"en": "Be careful",
+"he": "היזהר"
+},
+{
+"en": "It's okay",
+"he": "זה בסדר"
+},
+{
+"en": "I think so",
+"he": "אני חושב שכן"
+},
+{
+"en": "I hope so",
+"he": "אני מקווה שכן"
+},
+{
+"en": "Let's go",
+"he": "בוא נלך"
+},
+{
+"en": "Thank you very much",
+"he": "תודה רבה"
+}
+]
+}
+]
 }
