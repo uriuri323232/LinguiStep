@@ -2,17 +2,16 @@
   "expo": {
     "name": "English Offline",
     "slug": "english-offline",
-    "version": "2.0.0",
+    "version": "2.1.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
-    "userInterfaceStyle": "light",
+    "userInterfaceStyle": "automatic",
     "android": {
       "package": "com.example.englishoffline",
-      "versionCode": 2,
+      "versionCode": 3,
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundImage": "./assets/adaptive-bg.png",
-        "monochromeImage": "./assets/adaptive-mono.png",
         "backgroundColor": "#6A5CF3"
       }
     },
